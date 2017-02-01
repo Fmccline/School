@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{setspace}  % To use linespacing
+\usepackage{indentfirst} % Indents first line after sections
+\usepackage{amssymb} % for \mathbb
+% Set up header
+\title{Math 307: HW2}
+\author{Frank Cline}
+\date{\today}
+% Make new commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+
+
+% Start main document
+\begin{document}
+\onehalfspacing
+\hfill Frank Cline
+
+\hfill Math 307
+
+\hfill HW 2
+
+% SECTION 1.6
+\section*{1.6} % * after section makes it not numbered
+
+\begin{enumerate}
+\setcounter{enumi}{0}
+\item OEIS Sequence
+
+PUT ANSWER HERE
+\end{enumerate}
+
+% SECTION 1.7
+\section*{1.7 :} %  4, 5, 6, 13
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Consider the following functions from $\N$  into $\N$:\\
+$1_\N (n)=n$, $f(n) = 3n$, $g(n) = n+(-1)^n$, $h(n)=min\{n,100\}$, \\$k(n)=max\{0,n-5\}$.
+	\begin{enumerate}
+	\item Which of these functions are one-to-one?\\
+	$f(n)$ is one-to-one because there exists a $3n$ that maps to every $n$.\\
+	$g(n)$ is one-to-one because even numbers map to the next odd number, and odd numbers map to the previous even number.\\
+
+	\item Which of these functions map $\N$ onto $\N$\\
+	
+	\end{enumerate}
+\item Here are two "shift functions" mapping $\N$ into $\N$ :\\
+$f(n)=n+1$ and $g(n)=max\{0,n-1\}$ for $n \in \N$.
+	\begin{enumerate}
+	\item Calculate $f(n)$ for $n=0,1,2,3,4,73$.\\
+
+	\item Calculate $g(n)$ for $n=0,1,2,3,4,73$.\\
+
+	\item Show that $f$ is one-to-one but does not map $\N$ onto $\N$.\\
+
+	\item Show that $g$ maps $\N$ onto $\N$ but is not one-to-one.\\
+
+	\item Show that $g(f(n))=n$ for all $n$, but that $f(g(n))=n$ does not hold for all $n$.\\
+	
+	\end{enumerate}
+\item Let $\sum =\{a,b,c\}$ and let $\sum^\ast$ be the set of all words $w$ using the letters from $sum$. Define $L(w)=$length$(w)$ for all $w \in \sum^\ast$.
+	\begin{enumerate}
+	\item Calculate $L(w)$ for the words $w_1=cab$, $w_2=ababac$, and $w_3=\lambda$.\\
+
+	\item Is $L$ a one-to-one function? Explain.\\
+
+	\item The function $L$ maps $\sum^\ast$ into $\N$. Does $L$ map $\sum^\ast$ onto $\N$? Explain.\\
+
+	\item Find all words $w$ such that $L(w)=2$.\\
+	
+	\end{enumerate}
+\end{enumerate}
+\begin{enumerate}
+\setcounter{enumi}{12}
+\item Let $f : S\to T$ and $g: T\to U$ be one-to-one functions. Show that the function $g\circ f: S\to U$ is one-to-one.
+	\begin{itemize}
+	\item hello
+	\end{itemize}
+\end{enumerate}
+
+
+\end{document}
