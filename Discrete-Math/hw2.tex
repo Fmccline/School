@@ -2,17 +2,12 @@
 \usepackage{setspace}  % To use linespacing
 \usepackage{indentfirst} % Indents first line after sections
 \usepackage{amssymb} % for \mathbb
-% Set up header
-\title{Math 307: HW2}
-\author{Frank Cline}
-\date{\today}
+
 % Make new commands
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\abs}[1]{\left|#1\right|}
-
-
 
 % Start main document
 \begin{document}
@@ -34,7 +29,7 @@ PUT ANSWER HERE
 \end{enumerate}
 
 % SECTION 1.7
-\section*{1.7 :} %  4, 5, 6, 13
+\section*{1.7} %  4, 5, 6, 13
 
 \begin{enumerate}
 \setcounter{enumi}{3}
@@ -43,42 +38,52 @@ $1_\N (n)=n$, $f(n) = 3n$, $g(n) = n+(-1)^n$, $h(n)=min\{n,100\}$, \\$k(n)=max\{
 	\begin{enumerate}
 	\item Which of these functions are one-to-one?\\
 	$f(n)$ is one-to-one because there exists a $3n$ that maps to every $n$.\\
-	$g(n)$ is one-to-one because even numbers map to the next odd number, and odd numbers map to the previous even number.\\
-
+	$g(n)$ is one-to-one because even numbers map to the next odd number, 
+	and odd numbers map to the previous even number.
 	\item Which of these functions map $\N$ onto $\N$\\
-	
+	$g(n)$ is onto because every even number is mapped to the next odd, 
+	and every odd number is mapped to the previous even. Thus all numbers of $\N$ are mapped.\\
+	$k(n)$ is onto because all $n$ is either mapped to 0 or $n-5$ which includes all of $\N$.
 	\end{enumerate}
 \item Here are two "shift functions" mapping $\N$ into $\N$ :\\
 $f(n)=n+1$ and $g(n)=max\{0,n-1\}$ for $n \in \N$.
 	\begin{enumerate}
 	\item Calculate $f(n)$ for $n=0,1,2,3,4,73$.\\
-
+	$f(0)=1$, $f(1)=2$, $f(2)=3$, $f(3)=4$, $f(4)=5$, $f(73)=74$
 	\item Calculate $g(n)$ for $n=0,1,2,3,4,73$.\\
-
+	$g(0)=0$, $g(1)=0$, $g(2)=1$, $g(3)=2$, $g(4)=3$, $g(73)=72$
 	\item Show that $f$ is one-to-one but does not map $\N$ onto $\N$.\\
-
+	For all $n$, $f(n)$ maps to $n+1$ which is different for all $n$, thus $f(n)$ is one-to-one. 
+	When $n=0$, $f(n)=1$ which is the smallest number mapped to by $f(n)$. Thus $0$ isn't included, 
+	so all of $\N$ isn't mapped to by $f(n)$. Therefore, $f(n)$ is not onto.
 	\item Show that $g$ maps $\N$ onto $\N$ but is not one-to-one.\\
-
-	\item Show that $g(f(n))=n$ for all $n$, but that $f(g(n))=n$ does not hold for all $n$.\\
-	
+	For all $n$, $g(n)$ maps to $0$ or $n-1$ thus all of $\N$ is mapped to. When $n=0$ and $n=1$, 
+	$g(n)=0$ for both, thus $g(n)$ isn't one-to-one.
+	\item Show that $g\circ f(n)=n$ for all $n$, but that $f\circ g(n)=n$ does not hold for all $n$.\\
+	$g\circ f(n) = max\{0,(n+1)-1\} = max\{0,n\} = n$ for all $n$.\\
+	$f\circ g(n) = max\{0,n-1\} + 1$, and when $n=0$, $f\circ g(0)=0+1=1$ and $0\not=1$ thus 
+	$f\circ g(n)\not=n$ for all $n$.
 	\end{enumerate}
 \item Let $\sum =\{a,b,c\}$ and let $\sum^\ast$ be the set of all words $w$ using the letters from $sum$. Define $L(w)=$length$(w)$ for all $w \in \sum^\ast$.
 	\begin{enumerate}
 	\item Calculate $L(w)$ for the words $w_1=cab$, $w_2=ababac$, and $w_3=\lambda$.\\
-
+	$L(w_1)=3$, $L(w_2)=6$, $L(w_3)=0$.
 	\item Is $L$ a one-to-one function? Explain.\\
-
+	No because when $w=bb$ and when $w=aa$, $L(w)$ for both is $2$. Thus $L$ is not one-to-one.
 	\item The function $L$ maps $\sum^\ast$ into $\N$. Does $L$ map $\sum^\ast$ onto $\N$? Explain.\\
-
+	$L$ maps $\sum^\ast$ onto $\N$ because $\sum^\ast$ contains the set of all words using \{a,b,c\} 
+	which means $L(w)$ can be any positive integer or zero which is all of $\N$. Thus $L$ maps 
+	$\sum^\ast$ onto $\N$.
 	\item Find all words $w$ such that $L(w)=2$.\\
-	
+	$w=aa$, $w=ab$, $w=ac$, $w=bb$, $w=ba$,\\$w=bc$, $w=cc$, $w=ca$, $w=cb$.
 	\end{enumerate}
 \end{enumerate}
 \begin{enumerate}
 \setcounter{enumi}{12}
 \item Let $f : S\to T$ and $g: T\to U$ be one-to-one functions. Show that the function $g\circ f: S\to U$ is one-to-one.
 	\begin{itemize}
-	\item hello
+	\item If $s_1\not=s_2$ then $f(s_1)\not=f(s_2)$ because $f$ is one-to-one. Then $g(f(s_1))\not=
+	g(f(s_2))$ because $f(s_1)\not=f(s_2)$ and $g$ is one-to-one. Thus $g\circ f$ is one-to-one.
 	\end{itemize}
 \end{enumerate}
 
