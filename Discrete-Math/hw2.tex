@@ -8,6 +8,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\fivespace}{\space\space\space\space\space}
 
 % Start main document
 \begin{document}
@@ -77,8 +78,6 @@ $f(n)=n+1$ and $g(n)=max\{0,n-1\}$ for $n \in \N$.
 	\item Find all words $w$ such that $L(w)=2$.\\
 	$w=aa$, $w=ab$, $w=ac$, $w=bb$, $w=ba$,\\$w=bc$, $w=cc$, $w=ca$, $w=cb$.
 	\end{enumerate}
-\end{enumerate}
-\begin{enumerate}
 \setcounter{enumi}{12}
 \item Let $f : S\to T$ and $g: T\to U$ be one-to-one functions. Show that the function $g\circ f: S\to U$ is one-to-one.
 	\begin{itemize}
@@ -87,5 +86,126 @@ $f(n)=n+1$ and $g(n)=max\{0,n-1\}$ for $n \in \N$.
 	\end{itemize}
 \end{enumerate}
 
+\section*{2.1} % 2,4,6,7,12,14,16
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Let $p, q,$ and $r$ be the following prepositions:\\
+	$p=$ it is raining\\
+	$q=$ the sun is shinging\\
+	$r=$ there are clouds in the sky\\
+	Translate the following into English sentences.
+	\begin{enumerate}
+	\item $(p\wedge q)\to r$\\
+	If it is raining and it is sunny, then there are clouds in the sky.
+	\item $(p\to r)\to q$\\
+	If it is raining, then there are clouds in the sky, which implies the sun is shining.
+	\item $\neg p\leftrightarrow (q\vee r)$\\
+	It is not raining if and only if the sun is shining or only if there are
+	clouds in the sky.
+	\item $\neg (p\leftrightarrow (q\vee r))$\\
+	It is not raining if and only if the sun is not shining or only if there are not clouds in the sky.
+	\item $\neg (p\vee q)\wedge r$\\
+	It is not raining, or the sun is not shining, and there are clouds in the sky.
+	\end{enumerate}
+\setcounter{enumi}{3}
+\item Which of the following are propositions? Give the truth values of the propositions.
+	\begin{enumerate}
+	\item $x^2=x$ $\forall x\in\R$.\\
+	False
+	\item $x^2=x$ for some $x\in\R$.\\
+	True
+	\item $x^2=x$.\\
+	False
+	\item $x^2=x$ for exactly one $x\in\R$.\\
+	False
+	\item $xy=xz$ implies $y=z$.\\
+	False
+	\item $xy=xz$ implies $y=z$ $\forall x,y,z\in\R$.\\
+	False
+	\item $w_1w_2=w_1w_3$ implies $w_2=w_3$ for all words $w_1,w_2,w_3\in\sum^\ast$.\\
+	True
+	\end{enumerate}
+\setcounter{enumi}{5}
+\item Give the converses of the following propositions.
+	\begin{enumerate}
+	\item $q\to r$.\\
+	$r\to q$
+	\item If I am smart, then I am rich.\\
+	If I am rich, then I am smart.
+	\item If $x^2=x$, then $x=0$ or $x=1$.\\
+	If $x=0$ or $x=1$, then $x^2=x$.
+	\item If $2+2=4$, then $2+4=8$.\\
+	If $2+4=8$, then $2+2=4$.
+	\end{enumerate}
+\item Give the contrapositives of the propositions in exercise 6.
+	\begin{enumerate}
+	\item $q\to r$.\\
+	$\neg r\to \neg q$
+	\item If I am smart, then I am rich.\\
+	If I am not rich, then I am not smart.
+	\item If $x^2=x$, then $x=0$ or $x=1$.\\
+	If $x\not=0$ or $x\not=1$, then $x^2\not=x$.
+	\item If $2+2=4$, then $2+4=8$.\\
+	If $2+4\not=8$, then $2+2\not=4$.
+	\end{enumerate}
+\setcounter{enumi}{11}
+\item Find counterexamples to the following assertions.
+	\begin{enumerate}
+	\item $2^n+1$ is prime for every $n\geq2$.\\
+	When $n=3$, $2^3+1=9$ and $3\mid9$ so $9$ is not prime.
+	\item $2^n+3^n$ is prime $\forall n\in\N$.\\
+	When $n=3$, $2^3+3^3=35$ and $5\mid35$ so $35$ is not prime. 
+	\item $2^n+n$ is prime for every positive integer $n$.\\
+	When $n=4$, $2^4+4=20$ and $5\mid20$ so $20$ is not prime.
+	\end{enumerate}
+\setcounter{enumi}{13}
+\item Let $S$ be a nonempty set. Determine which of the following assertions are true.
+For the true ones, give a reason. For the false ones, provide counterexamples.\\
+	\begin{enumerate}
+	\item $A\cup B=B\cup A$\fivespace$\forall A,B\in P(S).$\\
+	True. $A\cup B$ is the set of all elements in $A$ and of all elements in $B$. $B\cup A$ is the set of
+	all the elements in $B$ and all of the elements in $A$ which is equal to $A\cup B$.
+	\item $(A\setminus B)\cup B=A$\fivespace$\forall A,B\in P(S).$\\
+	False. If $S = \{1,2,3,4\}$ $\exists A=\{1,2,3\}$ and $\exists B=\{2,3,4\}$ in $P(S)$. 
+	$(A\setminus B)\cup B=\{1,2,3,4\}\not=A$. Thus the statement is false.
+	\item $(A\cup B)\setminus A=B$\fivespace$\forall A,B\in P(S).$\\
+	True. $(A\cup B)$ is the set of all elements in $A$ and all elements in $B$. $(A\cup B)\setminus A$ 
+	is all of the elements in $A$ and all of the elements in $B$ minus all of the elements in $A$ which leaves 
+	all of the elements in $B$. Thus the statement is True.
+	\item $(A\cap B)\cap C=A\cap(B\cap C)$\fivespace$\forall A,B\in P(S).$\\
+	True. An element in set of all elements in $A$ and $B$ that are also in $C$ will also be in the 
+	set of all elements in B and C that are also in A.
+	\end{enumerate}
+\setcounter{enumi}{15}
+\item Consider the following propositions: $r="ODD(N)=T"$, $m=$"the output goes to the monitor", and 
+$p=$"the output goes to the printer". Translate each of the following propositions into symbols.
+	\begin{enumerate}
+	\item The output goes to the monitor if $ODD(N)=T$.\\
+	$r\to m$
+	\item The output goes to the printer whenever $ODD(N)=T$ is not true.\\
+	$\neg r\to p$
+	\item $ODD(N)=T$ only if the output goes to the monitor.\\
+	$r\leftrightarrow m$
+	\item The output goes to the monitor if the output goes to the printer.\\
+	$p\to m$
+	\item $ODD(N)=T$ or the output goes to the monitor if the output goes to the printer.\\
+	$p\to (r\vee m)$
+	\end{enumerate}	
+\end{enumerate}
+
+\section*{2.2} % 2,3,12,23,24
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Consider the propostion "if $x>0$, then $x^2>0$." Here $x\in\R$
+	\begin{enumerate}
+	\item Give the converse and contrapositive of the proposition.\\
+	Converse: if $x^2>0$ then $x>0$.\\
+	Contrapositive: if $x^2\leq0$ then $x\leq0$.
+	\item Which of the following are true propositions: the original, its converse, or its contrapositive?\\
+	The original is true and the contrapositive is true.
+	\end{enumerate}
+
+\end{enumerate}
 
 \end{document}
