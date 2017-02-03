@@ -2,6 +2,7 @@
 \usepackage{setspace}  % To use linespacing
 \usepackage{indentfirst} % Indents first line after sections
 \usepackage{amssymb} % for \mathbb
+\usepackage{enumerate} %for changing labels of enumerate
 
 % Make new commands
 \newcommand{\N}{\mathbb{N}}
@@ -22,12 +23,12 @@
 % SECTION 1.6
 \section*{1.6} % * after section makes it not numbered
 
-\begin{enumerate}
-\setcounter{enumi}{0}
-\item OEIS Sequence
-
-PUT ANSWER HERE
-\end{enumerate}
+\begin{itemize}
+\item OEIS Sequence\\
+Sequence of triples: The 10 solutions of $1/p+1/q+1/r=1/2$ with $0<p\leq q\leq r$, lexicographically stored.\\
+This sequence is interesting because its first three terms are $3,7,42$ which are three of my favorite numbers.
+The sequence also answers an interesting question which is: $1/p+1/q+1/r=1/2$ with $0<p\leq q\leq r$\\
+\end{itemize}
 
 % SECTION 1.7
 \section*{1.7} %  4, 5, 6, 13
@@ -205,7 +206,102 @@ $p=$"the output goes to the printer". Translate each of the following propositio
 	\item Which of the following are true propositions: the original, its converse, or its contrapositive?\\
 	The original is true and the contrapositive is true.
 	\end{enumerate}
-
+\item Consider the following propositions:\\
+$p\to q$, $\neg p\to\neg q$, $q\to p$, $\neg q\to\neg p,$\\
+$q\wedge\neg p$, $\neg p\vee q$, $\neg q\vee p$, $p\wedge\neg q$.
+	\begin{enumerate}
+	\item Which proposition is the converse of $p\to q$?\\
+	$q\to p$
+	\item Which proposition is the contrapositive of $p\to q$?\\
+	$\neg q\to\neg p$
+	\item Which propositions are logically equivelent to $p\to q$?\\
+	$\neg q\to\neg p$, $\neg p\vee q$
+	\end{enumerate}
+\setcounter{enumi}{11}
+\item In which of the following statements is the "or" an "inclusive or"?
+	\begin{enumerate}
+	\item Choice of soup or salad.\\
+	This "or" is not inclusive.
+	\item To enter the university, a student must have taken a year of
+	chemistry or physics in high school.\\
+	This "or" is inclusive.
+	\item Publish or perish.\\
+	This "or" is not inclusive.
+	\item Experience with C++ or Java is desirable.\\
+	This "or" is inclusive.
+	\item The task will be completed on Thursday or Friday.\\
+	This "or" is not inclusive.
+	\item Discounts are available to persons under 20 or over 60.\\
+	This "or" is not inclusive.
+	\item No fishing or hunting allowed.\\
+	This "or" is inclusive.
+	\item The school will not be open in July or August.\\
+	This "or" is inclusive.
+	\end{enumerate}
+\setcounter{enumi}{22}
+\item A logician told her son "If you don't finish your dinner, you will not get to 
+stay up and watch TV." He finished his dinner and then was strent straight to bed. Discuss.
+	\begin{itemize}
+	\item Let $f=$"finished dinner" and let $s=$"sent to bed". $f$ is true and $s$ is true 
+	so the logician's statement of $\neg f\to\neg s$ is logically correct.
+	\end{itemize}
+\item Consider the statement "Concrete does not grow if you do not water it."
+	\begin{enumerate}
+	\item Give the contrapositive.\\
+	If you water concrete, it will grow.
+	\item Give the converse.\\
+	If you you do not water concrete, it will not grow.
+	\item Give the converse of the contrapositive.\\
+	Concrete will grow if you water it
+	\item Which among the original statement and the ones in parts a, b, and c are true?\\
+	All the statements are true.
+	\end{enumerate}
 \end{enumerate}
+
+\section*{Other Exercises} For the folowing statements:
+\begin{enumerate}[i.]
+\item Translate into symbols
+\item Write the negation of the statement in words
+\item Write the contrapositive of the original statement in words
+\end{enumerate}
+\begin{enumerate}
+\item For all the functions $f:S\to T$, if $f:S\to T$ is onto, then for all $s\in S$ 
+there exists a $t\in T$ such that $f(s)=t$.
+	\begin{enumerate}[i.]
+	\item Let $f=(f:S\to T) $ and an onto function.\\$\forall f\to(\forall s\in S$, $\exists t\in T:f(s)=t)$.
+	\item For some function $f:S\to T$ that is onto, then there exists a $s\in S$ for all $t\in T$ that $f(s)\not=t$.
+	\item There exists a $s\in S$ for all $t\in T$ such that $f(s)\not=t$ for some function $f:S\to T$ that is not onto.
+	\end{enumerate}
+\item For all graphs $G$, if $G$ is finite and connected, then $G$ has a spanning tree.
+	\begin{enumerate}[i.]
+	\item Let $gf=$ a graph that is finite, $gc=$ a graph that is connected, $s=$ a graph with a spanning tree.\\
+	$\forall (G:gf\wedge gc)$, $G\to s$
+	\item For some graph $G$, if $G$ is not finite or $G$ is not connected, then $G$ does not have a spanning tree.
+	\item For some graph $G$, if $G$ does not have a spanning tree, then $G$ is not finite and connected.
+	\end{enumerate}
+\item If G is a finite connected graph and every vertex has even degree, then G is Eulerian.
+	\begin{enumerate}[i.]
+	\item Let $gf=$ a graph that is finite, $gc=$ a graph that is connected, $ged=$ a graph with vertices with even degrees, 
+	and $e=$ a Eulerian graph.
+	$(G\wedge gf\wedge gc\wedge ged)\to e$
+	\item If $G$ is not a finite connected graph or every vertex does not have even degrees, then $G$ is not Eulerian.
+	\item If $G$ is not Eulerian, then $G$ is not a finite connected graph or every vertex does not have even degrees.
+	\end{enumerate}
+\item For all graphs $G$ with no loops or parallel edges, if $\abs{V(G)}=n\geq3$ and $deg(v)\geq n/2$ for each vertex of $G$, 
+then $G$ is Hamiltonian.
+	\begin{enumerate}[i.]
+	\item Let $gl=$ a graph with loops, $gpe=$ a graph with parallel edges, $v=$ vertex of a graph, $h=$ a Hamiltonian graph.\\
+	$\forall G\wedge\neg(gl\wedge gpe)$, $(\abs{V(G)}=n\geq3)\wedge(deg(v)\geq n/2)$ $\forall v\in G\to h$.
+	\item There exists a graph $G$ with loops and parallel edges, if $\abs{V(G)}\not=n\geq3$ and $deg(v)<n/2$ for some vertex of 
+	$G$, then $G$ is not Hamiltonian.
+	\item If $G$ is not Hamiltonian, then $G$ has loops and parallel edges with $\abs{V(G)}\not=n\geq3$ and $deg(v)<n/2$ 
+	for some vertex of $G$.
+	\end{enumerate}
+\end{enumerate}
+
+
+
+
+
 
 \end{document}
