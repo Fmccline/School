@@ -42,17 +42,48 @@
 \setcounter{enumi}{5}
 \item Consider the relation $R$ on $\Z$ defined by $(m,n)\in R$ if and only if $m^3-n^2\equiv 0$ mod$(5)$. Which of the properties $(R),(AR),(S),(AS)$, and $(T)$ are satisfied by $R$?
 	\begin{itemize}
-	\item Not $(R)$ because if $(m,n)=(3,3)$ then $3^3-3^2=27-9=18$ and $5\nmid18$, so 3 is not related to 	itself. Thus it's not reflexive.
-	\item Not $(AR)$ because if $m,n=5$ then $5^3-5^2=125-25=100$ and $5\mid100$, so 5 is related to 
+	\item $R$ does not satisfy $(R)$ because if $(m,n)=(3,3)$ then $3^3-3^2=27-9=18$ and $5\nmid18$, so 3 is not related to 			itself. Thus it's not reflexive.
+	\item $R$ does not satisfy $(AR)$ because if $m,n=5$ then $5^3-5^2=125-25=100$ and $5\mid100$, so 5 is related to 
 	itself. Thus it's not antireflexive.
-	\item Not $(S)$ because if $m=1,n=4$ then $1^3-4^2=1-16=-15$ and $5\mid-15$, so 1 is related to 4.
+	\item $R$ does not satisfy $(S)$ because if $m=1,n=4$ then $1^3-4^2=1-16=-15$ and $5\mid-15$, so 1 is related to 4.
 	if $m=4,n=1$ then $4^3-1^2=64-1=63$ and $5\nmid63$, so 4 is not related to 1. Since 1 is related to 4 
 	and 4 is not related to 1, it's not symmetric.
-	\item Not $(AS)$ because if $m=5,n=0$ then $5^3-0^2=125$ and $5\mid125$, so 5 is related to 0.
+	\item $R$ does not satisfy $(AS)$ because if $m=5,n=0$ then $5^3-0^2=125$ and $5\mid125$, so 5 is related to 0.
 	if $m=0,n=5$ then $0^3-5^2=-25$ and $5\mid-25$, so 0 is related to 5. Since 0 is related to 5 and 5 is 
 	related to 0, but $5\not=0$ it's not antisymmetric.
-	\item It is $(T)$.
+	\item $R$ satisfies $(T)$. 
 	\end{itemize}
+\item Define the "divides" relation $R$ on $\N$ by $(m,n)\in R$ if $m\mid n$.
+	\begin{enumerate}
+	\item Which of the properties $(R),(AR),(S),(AS),(T)$ does $R$ satisfy?\\
+		\begin{itemize}
+		\item $R$ satisfies $(R)$.
+		\item $R$ does not satisfy $(AR)$ because if $m,n=5$ then $5\mid5$ thus $(5,5)\in R$.
+		\item $R$ does not satisfy $(S)$ because if $m=5,n=10$ then $5\mid10$, but if $m=10,n=5$ then $10\nmid5$ thus 
+		$(5,10)\in R$, but $(10,5)\not\in R$.
+		\item $R$ satisfies $(AS)$.
+		\item $R$ satisfies $(T)$.
+		\end{itemize}
+	\item Describe the converse relation $R^\gets$.\\
+	$R^\gets$ is the relation on $\N$ by $(n,m)\in R^\gets$ if $n\mid m$.
+	\item Which of the properties $(R),(AR),(S),(AS),(T)$ does the converse satisfy?\\
+		\begin{itemize}
+		\item $R^\gets$ satisfies $(R)$.
+		\item $R^\gets$ does not satisfy $(AR)$ because if $n,m=5$ then $5\mid5$ thus \\$(5,5)\in R^\gets$.
+		\item $R^\gets$ does not satisfy $(S)$ because if $n=5,m=10$ then $5\mid10$, but if $n=10,m=5$ then $10\nmid5$ thus 
+		$(5,10)\in R^\gets$, but $(10,5)\not\in R^\gets$.
+		\item $R^\gets$ satisfies $(AS)$.
+		\item $R^\gets$ satisfies $(T)$.
+		\end{itemize}
+	\end{enumerate}
+\setcounter{enumi}{9}
+\item Give an example of the relation that is:
+	\begin{enumerate}
+	\item antisymmetric and transitive but not reflexive.\\
+	The relation $R$ on $\Z$ by $(m,n)\in R$ if and only if $m<n$.
+	\item symmetric but not reflexive or transitive.\\
+	The relation $R$ on the set $\{0,1,2,3\}$ by $(m,n)\in R$ if and only if $max(m,n)=3$.
+	\end{enumerate}
 \end{enumerate}
 
 
