@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{setspace}  % To use linespacing
+\usepackage{indentfirst} % Indents first line after sections
+\usepackage{amssymb} % for \mathbb
+\usepackage{enumerate} %for changing labels of enumerate
+
+% Make new commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\fivespace}{\space\space\space\space\space}
+
+% Start main document
+\begin{document}
+\onehalfspacing
+\hfill Frank Cline
+
+\hfill Math 307
+
+\hfill HW 2
+
+% Sections
+% 3.1 # 4, 6, 7, 10
+% 3.2 # 2, 3, 6, 8, 16
+% 3.3 16 cd, 18 cd
+
+% SECTION 3.1 # 4, 6, 7, 10
+\section*{3.1}
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item The following relations are defined on $N$.
+	\begin{enumerate}
+	\item Write the relation $R_1$ defined by $(m,n)\in R_1$ if $m+n=5$ as a set of ordered pairs.\\
+	$R_1=\{(0,5),(1,4),(2,3),(3,2),(4,1),(5,0)\}$
+	\item Do the same for $R_2$ defined by max$\{m,n\}=2$.\\
+	$R_2=\{(0,2),(1,2),(2,2),(2,1),(2,0)\}$
+	\item The relations $R_3$ defined by min$\{m,n\}=2$ consists of infinitely many ordered pairs. List five 	of them.\\
+	\{(2,3),(2,4),(2,5),(2,6),(2,7)\}
+	\end{enumerate}
+\setcounter{enumi}{5}
+\item Consider the relation $R$ on $\Z$ defined by $(m,n)\in R$ if and only if $m^3-n^2\equiv 0$ mod$(5)$. Which of the properties $(R),(AR),(S),(AS)$, and $(T)$ are satisfied by $R$?
+	\begin{itemize}
+	\item Not $(R)$ because if $(m,n)=(3,3)$ then $3^3-3^2=27-9=18$ and $5\nmid18$, so 3 is not related to 	itself. Thus it's not reflexive.
+	\item Not $(AR)$ because if $m,n=5$ then $5^3-5^2=125-25=100$ and $5\mid100$, so 5 is related to 
+	itself. Thus it's not antireflexive.
+	\item Not $(S)$ because if $m=1,n=4$ then $1^3-4^2=1-16=-15$ and $5\mid-15$, so 1 is related to 4.
+	if $m=4,n=1$ then $4^3-1^2=64-1=63$ and $5\nmid63$, so 4 is not related to 1. Since 1 is related to 4 
+	and 4 is not related to 1, it's not symmetric.
+	\item Not $(AS)$ because if $m=5,n=0$ then $5^3-0^2=125$ and $5\mid125$, so 5 is related to 0.
+	if $m=0,n=5$ then $0^3-5^2=-25$ and $5\mid-25$, so 0 is related to 5. Since 0 is related to 5 and 5 is 
+	related to 0, but $5\not=0$ it's not antisymmetric.
+	\item It is $(T)$.
+	\end{itemize}
+\end{enumerate}
+
+
+
+
+
+\end{document}
