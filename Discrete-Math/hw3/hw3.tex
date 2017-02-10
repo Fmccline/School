@@ -188,15 +188,86 @@ and the vertex sequence.
 	\item a path of length 3 from $w$ to $x$.\\
 	$w\xrightarrow{b} y\xrightarrow{b} w\xrightarrow{d} x$
 	\end{enumerate}
-
-
-
-
-
-
-
-
 \end{enumerate}
+
+% SECTION 3.3 #16 cd, 18 cd
+\section*{3.3}
+\begin{enumerate}
+\setcounter{enumi}{15}
+\item Write the matrices for the graphs in Figure 4.
+	\begin{enumerate}
+	\setcounter{enumii}{2}
+	\item
+	$M=
+		\begin{bmatrix}
+		0 & 1 & 1 & 0 & 0\\
+		1 & 0 & 0 & 1 & 1\\
+		1 & 0 & 0 & 1 & 1\\
+		0 & 1 & 1 & 0 & 1\\
+		0 & 1 & 1 & 1 & 0
+		\end{bmatrix}
+	$
+	\item
+	$M=
+		\begin{bmatrix}
+		0 & 1 & 0 & 0\\
+		1 & 1 & 0 & 0\\
+		0 & 0 & 1 & 0\\
+		0 & 0 & 0 & 0
+		\end{bmatrix}
+	$
+	\end{enumerate}
+\setcounter{enumi}{17}
+\item For each matrix in figure 6, draw a graph having the matrix.
+	\begin{enumerate}
+	\setcounter{enumii}{2}
+	\item Graph:\\
+		\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (v1) at (0,-1) {$v_1$};
+		    	\node (v2) at (0,2) {$v_2$};
+		    	\node (v3) at (3,-1) {$v_3$};
+		    	\node (v4) at (3,2) {$v_4$};
+		\end{scope}
+		
+		\begin{scope}[>={Stealth[black]},
+		              every node/.style={fill=white,circle},
+		              every edge/.style={draw=black},
+					every loop/.style={}]
+			\path (v1) edge[bend right=30] (v2);
+			\path (v1) edge[bend left=30] (v2);
+			\path (v1) edge (v3);
+			\path (v2) edge (v4);
+			\path (v3) edge[loop below] (v3);
+			\path (v4) edge[loop above] (v4);
+		\end{scope}
+		\end{tikzpicture}
+	\item Graph:\\
+		\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (v1) at (0,-1) {$v_1$};
+		    	\node (v2) at (0,2) {$v_2$};
+		    	\node (v3) at (3,-1) {$v_3$};
+		    	\node (v4) at (3,2) {$v_4$};
+			\node (v5) at (1.5,0.5) {$v_5$};
+		\end{scope}
+		
+		\begin{scope}[>={Stealth[black]},
+		              every node/.style={fill=white,circle},
+		              every edge/.style={draw=black},
+					every loop/.style={}]
+			\path (v1) edge[loop above] (v1);
+			\path (v1) edge[loop below] (v1);
+			\path (v2) edge[loop above] (v2);
+			\path (v2) edge[loop below] (v2);
+			\path (v3) edge[loop below] (v3);
+			\path (v4) edge (v5);
+		\end{scope}
+		\end{tikzpicture}
+	\end{enumerate}
+\end{enumerate}
+
+
 
 
 \end{document}
