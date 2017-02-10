@@ -1,8 +1,13 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 \usepackage{setspace}  % To use linespacing
 \usepackage{indentfirst} % Indents first line after sections
-\usepackage{amssymb} % for \mathbb
-\usepackage{enumerate} %for changing labels of enumerate
+\usepackage{amssymb} % For \mathbb
+\usepackage{enumerate} % For changing labels of enumerate
+\usepackage[margin=1in]{geometry} % For editing margins
+\usepackage{tikz} % Tikz drawing for graphs
+\usetikzlibrary{arrows.meta} % Allows customizing arrows
+
+\usepackage{amsmath}
 
 % Make new commands
 \newcommand{\N}{\mathbb{N}}
@@ -87,8 +92,111 @@
 	\end{enumerate}
 \end{enumerate}
 
+% SECTION 3.2 # 2, 3, 6, 8, 16
+\section*{3.2}
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Draw a picture of the digraph G with vertex set $V(G)=\{w,x,y,z\}$, edge set $E(G)=\{a,b,c,d,e,f,g\}$, and 
+$\gamma$ given by the following table:\\\\
+	\begin{tabular}{c|c c c c c c c}
+		$e$ & $a$ & $b$ & $c$ & $d$ & $e$& $f$& $g$\\
+		\hline
+		\\
+		$\gamma(e)$ & $(x,w)$ & $(w,x)$ & $(x,x)$ & $(w,z)$ & $(w,y)$ & $(w,z)$ & $(z,y)$\\
+	\end{tabular}
+	
+	\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,thick,draw}]
+	    \node (x) at (0,-1) {$x$};
+	    \node (w) at (0,2) {$w$};
+	    \node (y) at (3,-1) {$y$};
+	    \node (z) at (3,2) {$z$};
+	\end{scope}
+
+	\begin{scope}[>={Stealth[black]},
+	              every node/.style={fill=white,circle},
+	              every edge/.style={draw=black}]
+	    	\path [->] (x) edge[bend left=30] node {$a$} (w); 
+		\path [->] (w) edge node {$b$} (x);
+	    	\path [->] (x) edge[loop below] node {$c$} (x);
+		\path [->] (w) edge[bend left=30] node {$d$} (z);
+	   	\path [->] (w) edge node {$e$} (y);
+	    	\path [->] (w) edge node {$f$} (z);
+	    	\path [->] (z) edge node {$g$} (y);
+	\end{scope}
+	\end{tikzpicture}
+\item Which of the following vertex sequences describe paths in the digraph pictured in Figure$(7a)$?
+	\begin{enumerate}
+	\item $zyvwt$\\
+	Yes
+	\item $xzwt$\\
+	Yes
+	\item $vstx$\\
+	No
+	\item $zysu$\\
+	No
+	\item $xzyvs$\\
+	Yes
+	\item $suxt$\\
+	No
+	\end{enumerate}
+\setcounter{enumi}{5}
+\item There are four basic blood types: A, B, AB, and O. Type O can donate to any of the four types. A and B can donate to AB as 
+well as their own types. AB can only donate to AB. Draw a digraph that presents this information. Is the digraph acyclic?\\
+	\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,thick,draw}]
+		\node (A) at (0,-1) {$A$};
+	    	\node (B) at (0,2) {$B$};
+	    	\node (AB) at (3,-1) {$AB$};
+	    	\node (O) at (3,2) {$O$};
+	\end{scope}
+	
+	\begin{scope}[>={Stealth[black]},
+	              every node/.style={fill=white,circle},
+	              every edge/.style={draw=black},
+				every path/.style={->}]
+		\path (O) edge (A);
+		\path (O) edge (B);
+		\path (O) edge (AB);
+		\path (O) edge[loop above] (O);
+		\path (A) edge (AB);
+		\path (A) edge[loop below] (A);
+		\path (B) edge (AB);
+		\path (B) edge[loop above] (B);
+		\path (AB) edge[loop below] (AB);
+	\end{scope}
+	\end{tikzpicture}
+
+	\begin{itemize}
+	\item Yes the digraph is acyclic because there are no cycles.
+	\end{itemize}
+\setcounter{enumi}{7}
+\item Determine the reachability relation for the digraps in figures $6(a),(c)$, and $(d)$.
+	\begin{itemize}
+	\item If $R$ is the reachable relation on $V(G)$, then $R$ is the universal relation for figures $6(a),(c)$, and $(d)$.
+	\end{itemize}
+\setcounter{enumi}{15}
+\item For the graph in Figure $8(a)$, give an example of each of the following. Be sure to specify the edge sequence 
+and the vertex sequence.
+	\begin{enumerate}
+	\item a path of length 2 from $w$ to $z$.\\
+	$w\xrightarrow{d} x\xrightarrow{f}z$
+	\item a path of length 4 from $z$ to itself.\\
+	$z\xrightarrow{e} x\xrightarrow{f} z\xrightarrow{g} x\xrightarrow{e}z$
+	\item a path of length 5 from $z$ to itself.\\
+	Impossible.
+	\item a path of length 3 from $w$ to $x$.\\
+	$w\xrightarrow{b} y\xrightarrow{b} w\xrightarrow{d} x$
+	\end{enumerate}
 
 
+
+
+
+
+
+
+\end{enumerate}
 
 
 \end{document}
