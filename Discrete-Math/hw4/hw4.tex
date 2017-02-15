@@ -37,18 +37,22 @@
 \item Which of the following describe equivalence relations? For those that are not equivalence relations, specify which of $(R),(S),(T)$ fail and illustrate the failures with examples.
 	\begin{enumerate}
 	\item $L_1||L_2$ for straight lines in the plane if $L_1$ and $L_2$ are the same or are parallel.\\
-	.
+	Yes.
 	\item $L_1\perp L_2$ for straight lines in the plane if $L_1$ and $L_2$ are perpendicular.\\
-	.
+	No.\\
+	Not $(R)$ because a straight line can never be perpendicular to itself. $L_1\not\perp L_1$.\\
+	Not $(T)$ because if $L_1\perp L_2$ and $L_2\perp L_3$, then $L_1\not\perp L_3$. $L_1||L_3$.
 	\item $p_1\sim p_2$ for Americans if $p_1$ and $p_2$ live in the same state.\\
-	.
+	No. There are some Americans that don't live in a state like in Washington D.C.
 	\item $p_1\approx p_2$ for Americans if $p_1$ and $p_2$ live in the same state or in neighboring 
 	states.\\
-	.
+	No. There are some Americans that don't live in a state like in Washington D.C.
 	\item $p_1\approx p_2$ for people if $p_1$ and $p_2$ have a parent in common.\\
-	.
+	No.\\
+	Not $(T)$ because if $p_1\approx p_2$ and $p_2\approx p_3$, it doesn't mean $p_1\approx p_3$ because they could have 
+	different parents.
 	\item $p_1\cong p_2$ for people if $p_1$ and $p_2$ have the same mother.\\
-	.
+	Yes.
 	\end{enumerate}
 \item For each example of an equivalence relation in Exercise 1, describe the members of some equivalence class.
 	\begin{enumerate}
@@ -91,7 +95,21 @@
 \]
 	\begin{enumerate}
 	\item Give a picture of another graph isomorphic to these two.\\
-	.
+		\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+		    \node (1) at (0,0) {$1$};
+		    \node (2) at (2,0) {$2$};
+		    \node (3) at (1,-1) {$3$};
+		\end{scope}
+		
+		\begin{scope}[>={Stealth[black]},
+		              every node/.style={fill=white,circle},
+		              every edge/.style={draw=black}]
+		    	\path (1) edge (2);
+		    	\path (1) edge (3);
+			\path (2) edge[loop above] (2);
+		\end{scope}
+		\end{tikzpicture}
 	\item Find a graph with vertex set $\{1,2,3\}$ that is not isomorphic to the graphs yet has three edges and exactly one is 
 	a loop.\\
 	.
