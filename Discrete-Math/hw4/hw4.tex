@@ -56,7 +56,11 @@
 	\end{enumerate}
 \item For each example of an equivalence relation in Exercise 1, describe the members of some equivalence class.
 	\begin{enumerate}
-	\item  DO WORK HERE
+	\item $L_1||L_2$ for straight lines in the plane if $L_1$ and $L_2$ are the same or are parallel.\\
+	If we describe the lines as vectors, then $[<1,1>]=\{<2,2>,<3,3>,<4,4>,...\}$.
+	\setcounter{enumii}{5}
+	\item $p_1\cong p_2$ for people if $p_1$ and $p_2$ have the same mother.\\
+	The equivalence class of Michelle Obama is $[$Michelle$]=\{$Sasha, Malia$\}$.
 	\end{enumerate}
 \setcounter{enumi}{4}
 \item If $G$ and $H$ are both graphs with vertex set $\{1,2,...,n\}$, we say that $G$ is isomorphic to $H$, and write $G\cong H$, in case there is a way to label the vertices of $G$ so that it becomes $H$.
@@ -144,7 +148,7 @@
 		\end{scope}
 		\end{tikzpicture}
 	\item Show that $\simeq$ is an equivalence relation on the set of all graphs with the vertex set $\{1,2,...,n\}$.\\
-	DO WORK HERE
+	DO WORK HERE.
 	\end{enumerate}
 \setcounter{enumi}{7}
 \item
@@ -307,9 +311,15 @@ $(x,y)\preceq(z,w)$ if $x^2+y^2\leq z^2+w^2$.
 	if $(x,y)=(0,1)$ and $(z,w)=(1,0)$ then $0^2+1^2=1^2+0^2$ so $x^2+y^2 = z^2+w^2$ so $(x,y)$ is related to $(z,w)$ and $(z,w)$ 	is related to $(x,y)$ but $(x,y)\not=(z,w)$ thus $\preceq$ is not antisymmetric.
 	\setcounter{enumii}{2}
 	\item Draw a sketch of $\{(x,y):(x,y)\leq (3,4)\}$.\\
-	DO WORK HERE
+		\begin{tikzpicture}
+			\draw[dashed] (0,0) circle (2cm);
+			\draw[thick,fill] (1,1.75) circle (0.15cm);
+		\end{tikzpicture}
 	\item Draw a sketch of $\{(x,y):(x,y)\preceq (3,4)\}$.\\
-	DO WORK HERE
+		\begin{tikzpicture}
+			\draw[dashed] (0,0) circle (2cm);
+			\draw[thick,fill] (1,1.75) circle (0.15cm);
+		\end{tikzpicture}
 	\end{enumerate}
 \setcounter{enumi}{0}
 \item Draw a Hasse diagram for $S=\{4,6,8,12\}$ with the partial order $\mid$.\\
@@ -328,7 +338,7 @@ $(x,y)\preceq(z,w)$ if $x^2+y^2\leq z^2+w^2$.
 		\path (4) edge (12);
 	    	\path (6) edge (12);
 	\end{scope}
-		\end{tikzpicture}
+	\end{tikzpicture}
 \end{enumerate}
 
 %SECTION 11.2
