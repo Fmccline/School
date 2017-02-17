@@ -148,7 +148,7 @@
 		\end{scope}
 		\end{tikzpicture}
 	\item Show that $\simeq$ is an equivalence relation on the set of all graphs with the vertex set $\{1,2,...,n\}$.\\
-	DO WORK HERE.
+	$\simeq$ is reflexive, symmetric, and transitive. Thus the relation is an equivalence relation.
 	\end{enumerate}
 \setcounter{enumi}{7}
 \item
@@ -173,9 +173,9 @@
 	\begin{enumerate}
 	\item Verify that the relation $\cong$ defined in Example 5b (the reachable Relation $R$ on $V(G)$ by $(v,w)\in R$) is an 
 	equivalence relation on $V(G)$.\\
-	DO WORK HERE
+	$\cong$ is reflexive, symmetric, and transitive. Thus the relation is an equivalence relation.
 	\item Given a vertex $v$ in $V(G)$, describe in words the equivalence class containing $v$.\\
-	DO WORK HERE
+	The equivalence class containing $v$ is an equivalence class.
 	\end{enumerate}
 \end{enumerate}
 
@@ -190,13 +190,13 @@
 	\item $n=20,m=4$\\
 	$\lfloor20/4\rfloor=5$\\$20\mod4=0$
 	\item $n=-20,m=3$\\
-	$\lfloor-20/3\rfloor=-7$\\$-20\mod3=-1$
+	$\lfloor-20/3\rfloor=-7$\\$-20\mod3=1$
 	\item $n=-20,m=4$\\
 	$\lfloor-20/4\rfloor=-5$\\$-20\mod4=0$
-	\item $n=371,246$ , $m=265$\\	
-	$\lfloor371,246/265\rfloor=1400$\\$371,246\mod265=246$
-	\item $n=-371,246$ , $m=265$\\	
-	$\lfloor-371,246/265\rfloor=-1401$\\$-371,246\mod265=19$
+	\item $n=371,246$ , $m=65$\\	
+	$\lfloor371,246/65\rfloor=5711$\\$371,246\mod65=31$
+	\item $n=-371,246$ , $m=65$\\	
+	$\lfloor-371,246/65\rfloor=-5712$\\$-371,246\mod65=34$
 	\end{enumerate}
 \setcounter{enumi}{3}
 \item 
@@ -228,7 +228,7 @@
 	$A_1=\{-8,-5,-2,1,4,7,10\}$\\
 	$A_2=\{-10,-7,-4,-1,2,5,8\}$
 	\item What is $A_3,A_4,A_5$?\\
-	$A_3=A_0$ and $A_4=A_1$ and $A_5=A_2$
+	$A_3,A_4,A_5=\emptyset$
 	\end{enumerate}
 \setcounter{enumi}{11}
 \item For $m,n\in\N,$ define $m\sim n$ if $m^2-n^2$ is a multiple of 3.
@@ -307,18 +307,18 @@ $(x,y)\leq(z,w)$ if $(x,y)<(z,w)$ or $(x,y)=(z,w)$,\\
 $(x,y)\preceq(z,w)$ if $x^2+y^2\leq z^2+w^2$.
 	\begin{enumerate}
 	\item Which of these relations are partial orders? Explain.\\
-	$\leq$ is a partial order. $<$ is not a partial order because it is not reflexive. $\preceq$ is not a partial order because 
-	if $(x,y)=(0,1)$ and $(z,w)=(1,0)$ then $0^2+1^2=1^2+0^2$ so $x^2+y^2 = z^2+w^2$ so $(x,y)$ is related to $(z,w)$ and $(z,w)$ 	is related to $(x,y)$ but $(x,y)\not=(z,w)$ thus $\preceq$ is not antisymmetric.
+	$\leq$ is a partial order.\\
+	$<$ is not a partial order because $\forall n\in\R,n\not<n$ thus it is not reflexive.\\
+	$\preceq$ is not a partial order because if $(x,y)=(0,1)$ and $(z,w)=(1,0)$ then $0^2+1^2=1^2+0^2$ so $x^2+y^2 = z^2+w^2$ so 		$(x,y)$ is related to $(z,w)$ and $(z,w)$ is related to $(x,y)$ but $(x,y)\not=(z,w)$ thus $\preceq$ is not antisymmetric.
 	\setcounter{enumii}{2}
 	\item Draw a sketch of $\{(x,y):(x,y)\leq (3,4)\}$.\\
 		\begin{tikzpicture}
-			\draw[dashed] (0,0) circle (2cm);
-			\draw[thick,fill] (1,1.75) circle (0.15cm);
+			\draw[dashed] (0,0) circle (1.5cm);
+			\draw[thick,fill] (0.75,1.25) circle (0.1cm);
 		\end{tikzpicture}
 	\item Draw a sketch of $\{(x,y):(x,y)\preceq (3,4)\}$.\\
 		\begin{tikzpicture}
-			\draw[dashed] (0,0) circle (2cm);
-			\draw[thick,fill] (1,1.75) circle (0.15cm);
+			\draw[dashed] (0,0) circle (1.5cm);
 		\end{tikzpicture}
 	\end{enumerate}
 \setcounter{enumi}{0}
