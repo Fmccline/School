@@ -1,0 +1,263 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}  % To use linespacing
+\usepackage{indentfirst} % Indents first line after sections
+\usepackage{amssymb} % For \mathbb
+\usepackage{enumerate} % For changing labels of enumerate
+\usepackage[margin=1in]{geometry} % For editing margins
+\usepackage{tikz} % Tikz drawing for graphs
+\usetikzlibrary{arrows.meta} % Allows customizing arrows
+
+\usepackage{amsmath}
+
+% Make new commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\fivespace}{\space\space\space\space\space}
+
+% Start main document
+\begin{document}
+\onehalfspacing
+\hfill Frank Cline
+
+\hfill Math 307
+
+\hfill HW 5
+
+% Sections
+% 4.1 # 10, 12, 22
+% 4.2 # 6, 8, 20
+% 4.4 # 8, 10
+% 4.6 # 2b, 6, 12
+
+% SECTION 4.1 # 10, 12, 22
+\section*{4.1}
+\begin{enumerate}
+
+\setcounter{enumi}{9}
+\item Show that the following are loop invariants for the loop:\\ \\
+while $1\leq m$ do \\
+$m:=2m$\\
+$n:=3n$
+	\begin{enumerate}
+	\item $n^2\geq m^3$\\
+	If $n^2\geq m^3$ before entering the loop, then after $i$ iterations, \\
+	$n^2=(3^in)^2=3^{2i}n^2$ and $m^3=(2^im)^3=2^{3i}m^3$. We know $n^2\geq m^3$, so we need to 
+	show $3^{2i}\geq2^{3i}$. By taking the $i$-th root on both sides we get $3^2\geq2^3$ which turns out 	to $9\geq8$ which is true, thus $n^2\geq m^3$ is a loop invariant.
+	
+	\item $2m^6<n^4$\\
+	If $2m^6<n^4$ before entering the loop, then after $i$ iterations, \\
+	$m=2^i m$ and $n=3^i n$. So $2m^6<n^4$ becomes $2(2^im)^6<(3^in)^4$ which equals\\
+	$2^{6i}(2m^6)<(n^4)3^{4i}$. We know $2m^6<n^4$, so we need to show $2^{6i}<3^{4i}$. 
+	By taking the $i$-th root on both sides we get $2^6<3^4$ which turns out 	to $64<81$ which is 	true, 		thus $2m^6<n^4$ is a loop invariant.
+	\end{enumerate}
+	
+\setcounter{enumi}{11}
+\item Consider the loop\\ \\
+while $k\geq 1$ do\\
+$k:=2k$
+	\begin{enumerate}
+	\item Is $k^2\equiv 1$ (mod 3) a loop invariant? Explain.\\
+	After $i$ iterations, $k=2^ik$, so $k^2 = 4^ik^2$. We know $k^2\equiv 1$ (mod 3), so we need to 		show that $4^i\equiv 1$ (mod 3). We also know that $4\equiv 1$ (mod 3), so $4^i\equiv 1^i$ (mod 3) 	which equals $4^i\equiv 1$ (mod 3). Thus $k^2\equiv 1$ (mod 3) is a loop invariant.
+	
+	\item Is $k^2\equiv 1$ (mod 4) a loop invariant? Explain.\\
+	After $i$ iterations, $k=2^ik$, so $k^2 = 4^ik^2$. We know $k^2\equiv 1$ (mod 4), so we need to 		show that $4^i\equiv 1$ (mod 4). However, $4^i\equiv 0$ (mod 4) because $4^i$ is divisible by 4. Thus 
+	 $k^2\equiv 1$ (mod 4) is not a loop invariant.
+	\end{enumerate}
+	
+\setcounter{enumi}{21}
+\item
+	\begin{enumerate}
+	\item Is $5^k < k!$ an invariant of the following loop?\\ \\
+	while $4\leq k$ do\\
+	$k:=k+1$\\
+	No because, when $k=4$, $5^k < k!$ = $5^4<4!$ = $625<24$ which is false.
+
+	\item Can you conclude that $5^k < k!$ for all $k\geq4$?\\
+	No because, when $k=4$, $5^k < k!$ = $5^4<4!$ = $625<24$ which is false.
+	\end{enumerate}
+\end{enumerate}
+
+% SECTION 4.2 # 6, 8, 20
+\section*{4.2}
+\begin{enumerate}
+
+\setcounter{enumi}{5}
+\item Prove $4+10+16+...+(6n-2)=n(3n+1)$ for all $n\in\Z^+$.
+	\begin{itemize}
+	\item (B) $n=1$, $(6\cdot1-2)=1(3\cdot1+1)$ so $4=4$ which is true.
+	\item (I)  For all $n\in\Z^+$ then $4+10+16+...+(6(n-1)-2)=(n-1)(3(n-1)+1)$
+	\item Inductive Step:
+		\begin{align*}
+		n(3n+1) &= 4+10+16+...+(6(n-1)-2)+(6n-2)\\
+		&= (n-1)(3(n-1)+1)+(6n-2) & (\text{By Inductive Hypothesis})\\
+		&= 3n^2 - 2n - 3n + 2 + 6n - 2\\
+		&= 3n^2+n\\
+		&= n(3n+1)
+		\end{align*}
+	\item Thus $4+10+16+...+(6n-2)=n(3n+1)$ for all $n\in\Z^+$
+	\end{itemize}
+
+\setcounter{enumi}{7}
+\item Prove: $\frac{1}{1\cdot5} + \frac{1}{5\cdot9} + \frac{1}{9\cdot13} + ... + 
+\frac{1}{(4n-3)(4n+1)} = \frac{n}{4n+1}$ for $n\in\Z^+$.
+	\begin{itemize}
+	\item (B) $n=1$, $\frac{1}{(4\cdot1-3)(4\cdot1+1)} = \frac{n}{4n+1}$ so $\frac{1}{5}=\frac{1}{5}$ which 	is true.
+	\item (I)  For all $\frac{1}{1\cdot5} + \frac{1}{5\cdot9} + \frac{1}{9\cdot13} + ... + 
+		\frac{1}{(4(n-1)-3)(4(n-1)+1)} = \frac{n-1}{4(n-1)+1}$ for $n\in\Z^+$
+	\item Inductive Step:
+		\begin{align*}
+		 \frac{n}{4n+1} &= 
+		 \frac{1}{1\cdot5} + \frac{1}{5\cdot9} + \frac{1}{9\cdot13} + ... + \frac{n-1}{(4(n-1)-3)(4(n-1)+1)} + 
+		 \frac{1}{(4n-3)(4n+1)}\\
+		 &= \frac{n-1}{4(n-1)+1} + \frac{1}{(4n-3)(4n+1)}\\
+		 &= \frac{n-1}{4n-3} + \frac{1}{(4n-3)(4n+1)}\\
+		 &= \frac{n-1(4n+1)+1}{(4n-3)(4n+1)}\\
+		 &= \frac{4n^2+n-4n}{(4n-3)(4n+1)}\\
+		 &= \frac{(n)(4n-3)}{(4n-3)(4n+1)}\\
+		  &= \frac{n}{4n+1}
+		\end{align*}
+	\item Thus $\frac{1}{1\cdot5} + \frac{1}{5\cdot9} + \frac{1}{9\cdot13} + ... +  \frac{1}{(4n-3)(4n+1)} = 		\frac{n}{4n+1}$ for $n\in\Z^+$.
+	\end{itemize}
+
+\setcounter{enumi}{19}
+\item Prove $1^3 + 2^3 + ... + n^3 = (1+2+...+n)^2$.\\
+	\begin{itemize}
+	\item (B) $n=2$, $1^3+2^3 = (1+2)^2$ so $9=9$ which is true.
+	\item (I) $1^3 + 2^3 + ... + (n-1)^3 = (1+2+...+(n-1))^2$ so 
+	$\sum_{i=1}^{n-1} i^3 = (\sum_{i=1}^{n-1}i)^2$
+	\item Inductive Step:
+		\begin{align*}
+		1^3 + 2^3 + ... + (n-1)^3 + n^3 &= (1+2+...+(n-1)+n)^2\\
+		\sum_{i=1}^{n-1} i^3 + n^3 &= (\sum_{i=1}^{n-1}i + n)^2 & (\text{By inductive hypothesis})\\
+		\sum_{i=1}^{n-1} i^3 + n^3 &= (\sum_{i=1}^{n-1}i)^2 + 2n\sum_{i=1}^{n-1}i + n^2\\
+		n^3 &= \frac{2n(n-1)(n-1+1)}{2}+n^2 & \paren{\text{By }\sum_{i=1}^{n-1}i = \frac{(n-1)(n-1+1)}{2}}\\
+		n^3 &= n^3-n^2 + n^2\\
+		n^3 &= n^3
+		\end{align*}
+	\item Thus $1^3 + 2^3 + ... + n^3 = (1+2+...+n)^2$.
+	\end{itemize}
+
+\end{enumerate}
+
+% SECTION 4.4 # 8, 10
+\section*{4.4}
+\begin{enumerate}
+
+\setcounter{enumi}{7}
+\item Let $\Sigma=\{a,b\}$ and let $s_n$ denote the number of words of length $n$ that do not contain the string $ab$.
+	\begin{enumerate}
+	\item Calculate $s_0,s_1,s_2,s_3$.\\
+	$s_0=1$\\
+	$s_1=2$\\
+	$s_2=3$\\
+	$s_3=4$
+	\item Find a formula for $s_n$ and prove it is correct.\\
+	(B) $s_0=1$\\
+	(R) $s_n=s_{n-1} + 1$ for $n\in\N$
+	\end{enumerate}
+
+\setcounter{enumi}{9}
+\item Consider the sequence defined by \\
+(B) SEQ$(0)=1$, SEQ$(1)=0$\\
+(R) SEQ$(n)=$SEQ$(n-2)$ for $n\geq 2$.
+	\begin{enumerate}
+	\item List the first few terms of this sequence.\\
+	SEQ(2) = 1, SEQ(3) = 0, SEQ(4) = 1, SEQ(5) = 0
+	\item What is the set of values of this sequence?\\
+	\{0,1\}
+	\end{enumerate}
+
+\end{enumerate}
+
+% SECTION 4.6 # 2b, 6, 12
+\section*{4.6}
+\begin{enumerate}
+
+\setcounter{enumi}{1}
+\item For $n\in\Z^+$, prove
+	\begin{enumerate}
+	\setcounter{enumii}{1}
+	\item $\frac{1}{1\cdot2} + \frac{1}{2\cdot3}+ ... + \frac{1}{n(n+1)} = \frac{n}{n+1}$\\
+		\begin{itemize}
+		\item (B) $n=1$,  $\frac{1}{1\cdot2} = \frac{1}{1+1}$ so $\frac{1}{2}=\frac{1}{2}$ which is true.
+		\item (I) $\frac{1}{1\cdot2} + \frac{1}{2\cdot3}+ ... + \frac{1}{(n-1)(n-1+1)} = \frac{n-1}{n-1+1}$\\
+		\item Inductive Step:
+			\begin{align*}
+			\frac{n}{n+1} &= 
+			\frac{1}{1\cdot2} + \frac{1}{2\cdot3}+ ... + \frac{1}{(n-1)(n-1+1)} + \frac{1}{n(n+1)}\\
+			&= \frac{n-1}{n-1+1} + \frac{1}{n(n+1)} & (\text{By inductive hypothesis})\\
+			&= \frac{(n+1)(n-1)}{n(n+1)} + \frac{1}{n(n+1)} \\
+			&= \frac{(n+1)(n-1)+1}{n(n+1)}\\
+			&= \frac{n^2}{n(n+1)}\\
+			&= \frac{n}{n+1}
+			\end{align*}
+		\item Thus $\frac{1}{1\cdot2} + \frac{1}{2\cdot3}+ ... + \frac{1}{n(n+1)} = \frac{n}{n+1}$.
+		\end{itemize}
+	\end{enumerate}
+
+\setcounter{enumi}{5}
+\item Recursively define $a_0=1,a_1=2$ and $a_n=\frac{a_{n-1}^2}{a_{n-2}}$ for $n\geq2$.
+	\begin{enumerate}
+	\item Calculate the first few terms of the sequence.\\
+	$a_2=\frac{2^2}{1}=4$\\
+	$a_3=\frac{4^2}{2}=8$\\
+	$a_4=\frac{8^2}{4}=16$
+	\item Using part (a), guess the general formula for $a_n$.\\
+	$a_n=2^n$
+	\item Prove the guess in part (b).
+		\begin{itemize}
+		\item (B) $n=1$, $a_1=2=2^1$
+		\item (I) $a_{n-1}=2^{n-1}$ and $a_{n-2}=2^{n-2}$
+		\item Inductive Step:
+			\begin{align*}
+			a_n &= \frac{a_{n-1}^2}{a_{n-2}}  \\
+			&= \frac{\paren{2^{n-1}}^2}{2^{n-2}}\\
+			&= 2^{2n-2-n+2}\\
+			&= 2^n
+			\end{align*}
+		\item Thus $a_n=2^n$.
+		\end{itemize}
+	\end{enumerate}
+
+\setcounter{enumi}{11}
+\item Recursively define:\\
+	$a_0=1,\\
+	a_1=3,\\
+	a_2=5$ \\
+	$a_n=3a_{n-2}+2a_{n-3}$ for $n\geq3$.
+	\begin{enumerate}
+	\item Calculate $a_n$ for $n=3,4,5,6,7$.\\
+	$a_3=11$\\
+	$a_4=21$\\
+	$a_5=43$\\
+	$a_6=85$\\
+	$a_7=171$
+	\item Prove that $a_n>2^n$ for $n\geq1$.
+		\begin{itemize}
+		\item (B) $n=1$, $a_1>2^1$ = $3>2$ which is true.
+		\item (I) $a_{n-2}>2^{n-2}$ and $a_{n-3}>2^{n-3}$
+		\item Inductive Step:
+			\begin{align*}
+			a_n &= e
+			3 &= 2
+			\end{align*}
+		\item .
+		\end{itemize}
+	\item Prove that $a_n<2^{n+1}$ for $n\geq1$.\\
+	.
+	\item Prove that $a_n=2_a{n-1}+-1^{n-1}$ for $n\geq1$.\\
+	.
+	\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+
+
+
+\end{document}
