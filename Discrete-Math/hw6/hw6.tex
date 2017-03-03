@@ -505,8 +505,63 @@
 	\item How would your answer to part (a) change if the graph also had six vertices of degree 0?\\
 		The answer would include 6 extra vertices, so it would be 25 not 19 vertices.
 	\end{enumerate}
-
-
 \end{enumerate}
+
+% SECTION 6.2 # 2, 7, 8, 15
+\section*{6.2}
+\begin{enumerate}
+
+\setcounter{enumi}{1}
+% 2
+\item 
+	\begin{enumerate}
+	% a
+	\item Give the vertex sequence of a simple closed path of largest possible length in the graph:\\
+		% Graph 7a
+		\[
+		\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+		    	\node (s) at (0,4) {$s$};
+			\node (t) at (2,4) {$t$};
+		    	\node (u) at (0,2) {$u$};
+			\node (v) at (2,2) {$v$};
+		    	\node (w) at (4,2) {$w$};
+			\node (x) at (0,0) {$x$};	
+			\node (y) at (2,0) {$y$};
+			\node (z) at (4,0) {$z$};			
+		\end{scope}
+		
+		\begin{scope}[>={Stealth[black]},
+		              every node/.style={fill=white,circle},
+		              every edge/.style={draw=black}]
+			\path (x) edge (y);
+			\path (x) edge (u);
+			\path (y) edge (z);
+			\path (y) edge (w);
+			\path (y) edge (v);
+			\path (z) edge (w);
+			\path (w) edge (t);
+			\path (t) edge (s);
+			\path (t) edge (v);
+			\path (s) edge (v);
+			\path (v) edge (u);
+		\end{scope}
+		\end{tikzpicture}
+		\]
+		% Answer to 2a
+		
+	\end{enumerate}
+
+
+
+
+
+\end{enumerate} 
+
+
+
+
+
+
 
 \end{document}
