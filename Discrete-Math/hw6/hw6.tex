@@ -38,7 +38,8 @@
 % 8
 \item Can a graph have an odd number of vertices of odd degree? Explain.
 	
-	No.
+	No. The sum of the degree of vertices is equal to $2\cdot |E(G)|$. If there is an odd number of odd degree vertices, 
+	their sum is odd. However, $2\cdot |E(G)|$ is always even, so the sum of the degree of vertices must always be even.
 
 \setcounter{enumi}{9}
 % 10
@@ -549,7 +550,12 @@
 		\end{tikzpicture}
 		\]
 		% Answer to 2a
-		
+		$y-v-t-s-v-u-x-y-w-z-y$ which has a length of 10.
+	
+	% b
+	\item Is your answer to part (a) an Euler Circuit for the graph?\\
+		No because there is an edge that is not used. Also a Euler Circuit doesn't exist because there are 2 odd degree vertices
+		($t\text{ and }w$).
 	\end{enumerate}
 
 
@@ -678,10 +684,10 @@
 	\path (4) edge (9);
 	\path (5) edge (6);
 	\path (5) edge (9);
-	\path (6) edge (7);
-	\path (7) edge (8);
-	\path (8) edge (9);
-	\path (9) edge (6);
+	\path (6) edge[bend right = 30] (7);
+	\path (7) edge[bend right = 30] (8);
+	\path (8) edge[bend right = 30] (9);
+	\path (9) edge[bend right = 30] (6);
 \end{scope}
 \end{tikzpicture}
 \]
