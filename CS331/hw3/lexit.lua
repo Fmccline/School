@@ -97,6 +97,7 @@ function lexit.lex(program)
 	local ch
 	local lexstr
 	local category
+	preferOpFlag = false
 
 	-- States the lexer has
 	local START = 0
@@ -388,6 +389,7 @@ function lexit.lex(program)
 
 		skipWhitespace()
 		preferOpFlag = false
+
 		return lexstr,category
 	end
 
