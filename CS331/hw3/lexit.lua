@@ -97,8 +97,7 @@ function lexit.lex(program)
 	local ch
 	local lexstr
 	local category
-	preferOpFlag = false
-
+	
 	-- States the lexer has
 	local START = 0
 	local DONE = 1
