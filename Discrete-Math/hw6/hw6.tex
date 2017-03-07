@@ -38,7 +38,8 @@
 % 8
 \item Can a graph have an odd number of vertices of odd degree? Explain.
 	
-	No.
+	No. The sum of the degree of vertices is equal to $2\cdot |E(G)|$. If there is an odd number of odd degree vertices, 
+	their sum is odd. However, $2\cdot |E(G)|$ is always even, so the sum of the degree of vertices must always be even.
 
 \setcounter{enumi}{9}
 % 10
@@ -549,12 +550,157 @@
 		\end{tikzpicture}
 		\]
 		% Answer to 2a
-		
+		$y-v-t-s-v-u-x-y-w-z-y$ which has a length of 10.
+	
+	% b
+	\item Is your answer to part (a) an Euler Circuit for the graph?\\
+		No because there is an edge that is not used. Also a Euler Circuit doesn't exist because there are 2 odd degree vertices
+		($t\text{ and }w$).
 	\end{enumerate}
 
 
+\setcounter{enumi}{6}
+% 7
+\item Consider the graph shown:
+% Graph 8a
+\[
+\begin{tikzpicture}
+\begin{scope}[every node/.style={circle,thick,draw}]
+    	\node (1) at (0,4) {$v_1$};
+	\node (2) at (4,4) {$v_2$};
+    	\node (3) at (2,3) {$v_3$};
+	\node (4) at (2,1) {$v_4$};
+    	\node (5) at (0,0) {$v_5$};
+	\node (6) at (4,0) {$v_6$};				
+\end{scope}
 
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=black}]
+	\path (1) edge (2);
+	\path (1) edge (3);
+	\path (1) edge (5);
+	\path (2) edge (6);
+	\path (2) edge (3);
+	\path (3) edge (4);
+	\path (3) edge (5);
+	\path (3) edge (6);
+	\path (4) edge (1);
+	\path (4) edge (2);
+	\path (4) edge (5);
+	\path (4) edge (6);
+	\path (5) edge (6);
+\end{scope}
+\end{tikzpicture}
+\]
+	\begin{enumerate}
+	% a
+	\item Describe an Euler path for this graph or explain why there isn't one.\\
+	$v_4-v_3-v_5-v_4-v_6-v_3-v_2-v_4-v_1-v_2-v_6-v_5-v_1-v_3$
 
+	% b
+	\item Describe an Euler Circuit for this graph or explain why there isn't one.\\
+	There isn't a Euler Circuit because a Euler Circuit means all vertices must be even degree, and the degrees of 
+	$v_3\text{ and }v_4$ are odd. Thus there is no Euler Circuit.
+	\end{enumerate}
+	
+% 8
+\item Consider the graph shown:
+% Graph 8b
+\[
+\begin{tikzpicture}
+\begin{scope}[every node/.style={circle,thick,draw}]
+    	\node (1) at (0,4) {$v_1$};
+	\node (2) at (4,4) {$v_2$};
+    	\node (3) at (2,3) {$v_3$};
+	\node (4) at (2,2) {$v_4$};
+    	\node (5) at (2,1) {$v_5$};
+	\node (6) at (0,0) {$v_6$};	
+	\node (7) at (4,0) {$v_7$};				
+\end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=black}]
+	\path (1) edge (2);
+	\path (1) edge (3);
+	\path (1) edge (5);
+	\path (1) edge (6);
+	\path (2) edge (4);
+	\path (2) edge (7);
+	\path (3) edge (7);
+	\path (3) edge (4);
+	\path (4) edge (6);
+	\path (4) edge (5);
+	\path (5) edge (7);
+	\path (6) edge (7);
+\end{scope}
+\end{tikzpicture}
+\]
+	\begin{enumerate}
+	% a
+	\item Describe an Euler path for this graph or explain why there isn't one.\\
+	There is no Euler Path for this graph because there are more than 2 odd degree vertices ($v_3,v_2,v_5,v_6$).
+
+	% b
+	\item Describe an Euler Circuit for this graph or explain why there isn't one.\\
+	There isn't a Euler Circuit because a Euler Circuit means all vertices must be even degree, and the degrees of 
+	$v_3,v_2,v_5,\text{ and }v_6$ are odd. Thus there is no Euler Circuit.
+	\end{enumerate}
+
+\setcounter{enumi}{14}
+% 15
+\item An old puzzle presents a house with 5 rooms and 16 doors. The problem is to figure out how to walk around and through the house so as to go through each door exactly once.
+\[
+\begin{tikzpicture}
+\begin{scope}[every node/.style={circle,thick,draw}]
+    	\node (1) at (0,0) {};
+	\node (2) at (2,0) {};
+    	\node (3) at (4,0) {};
+	\node (4) at (4,4) {};
+    	\node (5) at (0,4) {};
+	\node (6) at (-2,2) {};
+	\node (7) at (2,-2) {};	
+	\node (8) at (6,2) {};
+	\node (9) at (2,6) {};	
+\end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=black}]
+	\path (1) edge (2);
+	\path (1) edge (5);
+	\path (1) edge (6);
+	\path (1) edge (7);
+	\path (2) edge (3);
+	\path (2) edge (4);
+	\path (2) edge (5);
+	\path (2) edge (7);
+	\path (3) edge (4);
+	\path (3) edge (7);
+	\path (3) edge (8);
+	\path (4) edge (5);
+	\path (4) edge (8);
+	\path (4) edge (9);
+	\path (5) edge (6);
+	\path (5) edge (9);
+	\path (6) edge[bend right = 30] (7);
+	\path (7) edge[bend right = 30] (8);
+	\path (8) edge[bend right = 30] (9);
+	\path (9) edge[bend right = 30] (6);
+\end{scope}
+\end{tikzpicture}
+\]
+	\begin{enumerate}
+	% a
+	\item Is such a walk possible? Explain.\\
+	No because there are more than two odd degree vertices. Thus there is no Euler Path.
+	
+	% b
+	\item How does your answer change if the door adjoining the two larger rooms is sealed shut?\\
+	If the door adjoining the two larger rooms is sealed shut, then there exists a Euler Path because there are exactly 2 odd 
+	degree vertices, and the degree of the rest of the vertices is even.
+	\end{enumerate}
 
 \end{enumerate} 
 
