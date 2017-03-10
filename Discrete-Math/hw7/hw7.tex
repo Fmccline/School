@@ -593,11 +593,183 @@ A labeled tree can be used to visualize a family tree, and a labeled tree can al
 	\[
 	\to\{(5,3),(2,5),(1,2),(4,7),(4,8),(1,4),(6,9),(1,6),(1,10),(1,11)\}
 	\]
+	
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=30mm},level 2/.style={sibling distance=10mm}]
+	
+	\node[label = above:1] {}
+	child {
+		node[label = left:2]{} 
+		child {
+			node[label = left:5]{}
+			child {
+				node[label = right:3]{}
+			}
+		}
+	}
+	child {
+		node[label = left:4]{} 
+		child {
+			node[label = left:7]{}
+		}
+		child {
+			node[label = right:8]{}
+		}
+	}
+	child {
+		node[label = right:6]{} 
+		child {
+			node[label = right:9]{}
+		}
+	}
+	child {
+		node[label = right:10]{} 
+	}
+	child {
+		node[label = right:11]{} 
+	};	
+	\end{tikzpicture}
+
+\item Find the Pr\"{u}fer code of the following tree. Show some work.
+
+\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling distance=30mm},level 2/.style={sibling distance=10mm}
+]
+\node[label = above:1] {}
+child { node[label = above left:2] {} child { node[label = right:10] {} child { node[label = right:11] {} }}}
+child { node[label = right:5] {} 
+child { node[label = right:7] {} }
+child { node[label = right:8] {} }
+child { node[label = right:9] {} }
+}
+child { node[label = above right:4] {} 
+child { node[label = right:3] {} }
+child { node[label = right:6] {} }};
+
+\end{tikzpicture}
+	\\
+	\{Leaf (Neighbor),\} $\to$ \{3 (4), 6 (4), 4 (1), 7 (5), 8 (5), 9 (5), 5 (1), 1 (2), 2 (10)\} \\
+	$\to\paren{4,4,1,5,5,5,1,2,10}$
+	
+\ee
+
+% SECTION 6.5 # 2, 4, 8
+\be
+
+% 2
+\seti{1}
+\item For each graph, give a Hamilton circuit or explain why none exists.
+	\be
+	% 2a
+	\item
+	\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,draw, fill= black, inner sep = 2pt}]
+	    	\node (1) at (0,0) {};
+		\node (2) at (0,2) {};
+	    	\node (3) at (2,2) {};
+		\node (4) at (2,0) {};
+	    	\node (5) at (1,1) {};
+	\end{scope}
+	
+	\begin{scope}[>={Stealth[black]},
+	              every node/.style={fill=white,circle},
+	              every edge/.style={draw=black}]
+		\path (1) edge (2);
+		\path (2) edge (5);
+		\path (3) edge (5);
+		\path (4) edge (5);
+		\path (3) edge (4);
+		\path (1) edge (5);
+	\end{scope}
+	\end{tikzpicture}
+		\\
+		A Hamilton circuit does not exist because the center vertex must always be passed twice in order to reach all the 
+		vertices.
+	% 2b
+	\item 
+	\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,draw, fill= black, inner sep = 2pt}]
+	    	\node (1) at (0,0) {};
+		\node (2) at (2,0) {};
+	    	\node (3) at (4,0) {};
+		\node (4) at (6,0) {};
+	    	\node (5) at (1,4) {};
+		\node (6) at (3,4) {};
+	    	\node (7) at (5,4) {};
+	\end{scope}
+	
+	\begin{scope}[>={Stealth[black]},
+	              every node/.style={fill=white,circle},
+	              every edge/.style={draw=black}]
+		\path (1) edge (5);
+		\path (1) edge (6);
+		\path (1) edge (7);
+		\path (2) edge (5);
+		\path (2) edge (6);
+		\path (2) edge (7);
+		\path (3) edge (5);
+		\path (3) edge (6);
+		\path (3) edge (7);
+		\path (4) edge (5);
+		\path (4) edge (6);
+		\path (4) edge (7);
+	\end{scope}
+	\end{tikzpicture}
+		\\
+		Observe that the graph is bipartite because there exists 2 subsets $V_1\text{ and }V_2$ where every edge in the graph
+		connects a vertex in $V_1$ to $V_2$. Suppose The vertices of $V_1$ are the top 3 and the vertices of $V_2$ are the 
+		bottom 4:  $|V_1|=3$ and $|V_2|=4$. Notice that $|V_1|\not=|V_2|$ so there can't be a Hamilton circuit by Theorem 4.
+
+	% 2c
+	\item
+	\begin{tikzpicture}
+	\begin{scope}[every node/.style={circle,draw, inner sep = 2pt}]
+	    	\node (1) at (0,0) {$1$};
+		\node (2) at (0,1) {$2$};
+	    	\node (3) at (0,2) {$3$};
+		\node (4) at (1,2) {$4$};
+	    	\node (5) at (2,2) {$5$};
+		\node (6) at (2,1) {$6$};
+	    	\node (7) at (2,0) {$7$};
+		\node (8) at (1,0) {$8$};
+	    	\node (9) at (1,1) {$9$};
+	\end{scope}
+	
+	\begin{scope}[>={Stealth[black]},
+	              every node/.style={fill=white,circle},
+	              every edge/.style={draw=black}]
+		\path (1) edge (2);
+		\path (1) edge (8);
+		\path (2) edge (3);
+		\path (2) edge (9);
+		\path (3) edge (4);
+		\path (4) edge (5);
+		\path (4) edge (9);
+		\path (5) edge (6);
+		\path (6) edge (7);
+		\path (6) edge (9);
+		\path (7) edge (8);
+		\path (8) edge (9);
+	\end{scope}
+	\end{tikzpicture}
+		\\
+		Observe that the graph is bipartite by splitting the the graph into subgraphs\\
+		$V_1=\{1,3,5,7,9\}\text{ and }V_2=\{2,4,6,8\}$. Notice that $|V_1|=5\text{ and }|V_2|=4$. \\
+		$|V_1|\not=|V_2|$ so by Theorem 4 there can't be a Hamilton circuit.
+	
+	\ee
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \ee
-
-
-
 
 \end{document}
