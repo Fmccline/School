@@ -45,8 +45,8 @@
 \seti{7}
 \item Consider a tree with $n$ vertices. It has exactly $n-1$ edges [Lemma 2], so the sum of its of the degrees of its vertices is $2n-2$.
 	\be
+	% 8a
 	\item A tree has two vertices of degree 5, three of degree 3, two of degree 2, and the rest of degree 1. 	How many vertices are in the graph?\\
-	
 	$2|E(G)| = 2n-2 = 2(5)+3(3)+2(2)+x$
 	
 	\ee
@@ -55,10 +55,512 @@
 \seti{10}
 \item
 	\be
+	% 11a
 	\item Show that a forest with $n$ vertices and $m$ components has $n-m$ edges.\\
-	
-	
+	Suppose the components have $n_1,n_2,n_3,...,n_m$ vertices. The total vertices of the forest is then 
+	$n_1+n_2+n_3+...+n_m=n$. The $i$th component is a tree, so it has $n_i-1$ edges by Theorem 4. The total amount of edges in 
+	the forest is then $(n_1-1)+(n_2-1)+(n_3-1)+...+(n_m-1)=n-m$.
 	\ee
 \ee
+
+% SECTION 6.4 % 6, 8, 10, 12, and additional problems
+\section*{6.4}
+\be
+
+% 6
+\seti{5}
+\item 
+	\be
+	% 6a
+	\item Draw each of the seven types of rooted trees of height 3 in which each node that is not a leaf has 2 
+	children.\\
+	% 6a 1
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=40mm},level 2/.style={sibling distance=20mm},level 3/.style={sibling distance=10mm}]
+	
+	\node[label = above:1] {}
+	child {
+		node{} 
+		child {node{}
+			child {node{}} 
+			child {node{}} }			 
+		child {node{}
+			child {node{}} 
+			child {node{}} }
+	}
+	child {
+		node{} 
+		child {node{}
+			child {node{}} 
+			child {node{}} }			 
+		child {node{}
+			child {node{}} 
+			child {node{}} }
+	};	
+	\end{tikzpicture}
+
+	% 6a 2
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=40mm},level 2/.style={sibling distance=20mm},level 3/.style={sibling distance=10mm}]
+	
+	\node[label = above:2] {}
+	child {
+		node{} 
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+	% 6a 3
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=40mm},level 2/.style={sibling distance=20mm},level 3/.style={sibling distance=10mm}]
+	
+	\node[label = above:3] {}
+	child {
+		node{} 
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+	% 6a 4
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=40mm},level 2/.style={sibling distance=20mm},level 3/.style={sibling distance=10mm}]
+	
+	\node[label = above:4] {}
+	child {
+		node{} 
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}			
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+	};	
+	\end{tikzpicture}
+
+	% 6a 5
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=40mm},level 2/.style={sibling distance=20mm},level 3/.style={sibling distance=10mm}]
+	\node[label = above:5] {}
+	child {
+		node{} 
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+	% 6a 6
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=20mm},level 2/.style={sibling distance=20mm},level 3/.style={sibling distance=10mm}]
+	\node[label = above:6] {}
+	child {
+		node{} 
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+	}
+	child {
+		node{} 
+	};	
+	\end{tikzpicture}	
+
+	% 6a 7
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=20mm},level 2/.style={sibling distance=20mm},level 3/.style={sibling distance=10mm}]
+	\node[label = above:7] {}
+	child {
+		node{} 
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+	};	
+	\end{tikzpicture}
+	\ee
+
+% 8
+\seti{7}
+\item A 2-3 tree is a rooted tree such that each interior node, including the root if the height is 2 or more, has either two or three children and all paths from the root to the leaves habe the same length. There are seven different types of 2-3 trees of height 2. Draw one tree of each type.\\
+	% 8 - 1
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=20mm},level 2/.style={sibling distance=10mm}]
+	
+	\node[label = above:1] {}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+	% 8 - 2
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=40mm},level 2/.style={sibling distance=10mm}]
+	
+	\node[label = above:2] {}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+
+	% 8 - 3
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=40mm},level 2/.style={sibling distance=10mm}]
+	
+	\node[label = above:3] {}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+	% 8 - 4
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=30mm},level 2/.style={sibling distance=10mm}]
+	
+	\node[label = above:4] {}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+	% 8 - 5
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=30mm},level 2/.style={sibling distance=10mm}]
+	
+	\node[label = above:5] {}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+	% 8 - 6
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=30mm},level 2/.style={sibling distance=10mm}]
+	
+	\node[label = above:6] {}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+	% 8 - 7
+	\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=30mm},level 2/.style={sibling distance=10mm}]
+	
+	\node[label = above:7] {}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	}
+	child {
+		node{} 
+		child {
+			node{}
+		}			
+		child {
+			node{}
+		}
+		child {
+			node{}
+		}
+	};	
+	\end{tikzpicture}
+
+% 10
+\seti{9}
+\item Consider a full binary tree $T$ of height $h$.
+	\be
+	% 10a
+	\item How many leaves does $T$ have?\\
+	A full binary tree has $2^h$ leaves.
+	% 10b
+	\item How many vertices does $T$ have?\\
+	A full $m$-ary tree has $\frac{m^{h+1}-1}{m-1}$ vertices, so\\
+	a full binary tree has $\frac{2^{h+1}-1}{2-1}=2^{h+1}-1$ vertices.
+	\ee
+
+% 12
+\seti{11}
+\item Give some real-life examples of information storage that can be viewed as labeled trees.\\
+A labeled tree can be used to visualize a family tree, and a labeled tree can also be used to visualize the syntax of a language.
+
+% Additional Problem 1
+\seti{0}
+\item Additional Problem: Draw a tree with Prufer code (5,2,1,4,4,1,6,1,1), with no crossing edges. Show some work.\\
+	\begin{align*}
+	(5,2,1,4,4,1,6,1,1) &\to& (\not5,2,1,4,4,1,6,1,1) &\to& (\not5,\not2,1,4,4,1,6,1,1) &\to&\\
+	\{1,2,3,4,5,6,7,8,9,10\} &\to& \{1,2,\not3,4,5,6,7,8,9,10\} &\to& \{1,2,\not3,4,\not5,6,7,8,9,10\} &\to&\\ \\
+	(\not5,\not2,\not1,4,4,1,6,1,1) &\to& (\not5,\not2,\not1,\not4,4,1,6,1,1) &\to&\\
+	\{1,\not2,\not3,4,\not5,6,7,8,9,10\} &\to& \{1,\not2,\not3,4,\not5,6,\not7,8,9,10\} &\to&
+	\end{align*}
+
+
+\ee
+
+
+
 
 \end{document}
