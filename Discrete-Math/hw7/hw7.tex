@@ -46,9 +46,71 @@
 \item Consider a tree with $n$ vertices. It has exactly $n-1$ edges [Lemma 2], so the sum of its of the degrees of its vertices is $2n-2$.
 	\be
 	% 8a
-	\item A tree has two vertices of degree 5, three of degree 3, two of degree 2, and the rest of degree 1. 	How many vertices are in the graph?\\
-	$2|E(G)| = 2n-2 = 2(5)+3(3)+2(2)+x$
-	
+	\item A tree has two vertices of degree 5, three of degree 3, two of degree 2, and the rest of degree 1. 	How many vertices 		
+	are in the graph?\\
+	The tree has $n\text{ vertices, so }n-7$ must be of degree 1.\\
+	The sum of the degree of vertices is: \\ 
+	$2|E(G)| = 2n-2 = 2(5)+3(3)+2(2)+(n-7)(1)$\\
+	So $2n-2=10+9+4+n-7 \to 2n-2=16+n \to n=18$.\\
+	The tree has 18 vertices total.
+	% 8b
+	\item Draw a tree as described in part (a).\\
+		\begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling 				distance=30mm},level 2/.style={sibling distance=5mm},level 3/.style={sibling distance=5mm}]
+		
+		\node[label = above:1] {}
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+			child {
+				node{}
+			}
+			child {
+				node{}
+			}
+		}
+		child {
+			node{}
+			child {
+				node{}
+				child {
+					node{}
+				}
+			}
+		}
+		;	
+		\end{tikzpicture}
 	\ee
 
 % 11a
@@ -292,6 +354,10 @@
 		node{} 
 	};	
 	\end{tikzpicture}
+
+	% 6b
+	\item How many different types of regular binary trees are there of height 3?\\
+	$\frac{2^{3+1}-1}{2-1}=\frac{15}{1}=15$ so there are 15 different types of regular binary trees of height 3.
 	\ee
 
 % 8
@@ -629,7 +695,8 @@ A labeled tree can be used to visualize a family tree, and a labeled tree can al
 	};	
 	\end{tikzpicture}
 
-\item Find the Pr\"{u}fer code of the following tree. Show some work.
+% Additional Problem 2
+\item Additional Problem: Find the Pr\"{u}fer code of the following tree. Show some work.
 
 \begin{tikzpicture}[scale = 1,every node/.style={circle,draw, fill= black, inner sep = 2pt},level 1/.style={sibling distance=30mm},level 2/.style={sibling distance=10mm}
 ]
@@ -652,6 +719,7 @@ child { node[label = right:6] {} }};
 \ee
 
 % SECTION 6.5 # 2, 4, 8
+\section*{6.5}
 \be
 
 % 2
@@ -753,23 +821,114 @@ child { node[label = right:6] {} }};
 		\\
 		Observe that the graph is bipartite by splitting the the graph into subgraphs\\
 		$V_1=\{1,3,5,7,9\}\text{ and }V_2=\{2,4,6,8\}$. Notice that $|V_1|=5\text{ and }|V_2|=4$. \\
-		$|V_1|\not=|V_2|$ so by Theorem 4 there can't be a Hamilton circuit.
-	
+		$|V_1|\not=|V_2|$ so by Theorem 4 there can't be a Hamilton circuit.	
 	\ee
 
+%  4
+\seti{3}
+\item Consider the graph shown. \\
+\[
+\begin{tikzpicture}
+\begin{scope}[every node/.style={circle,draw, inner sep = 2pt}]
+    	\node (1) at (0,4) {$v_1$};
+	\node (2) at (2,4) {$v_2$};
+    	\node (3) at (1,3) {$v_3$};
+	\node (4) at (1,2) {$v_4$};
+    	\node (5) at (1,1) {$v_5$};
+	\node (6) at (0,0) {$v_6$};
+    	\node (7) at (2,0) {$v_7$};
+\end{scope}
 
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=black}]
+	\path (1) edge (2);
+	\path (1) edge (3);
+	\path (1) edge (5);
+	\path (1) edge (6);
+	\path (2) edge (4);
+	\path (2) edge (7);
+	\path (3) edge (4);
+	\path (3) edge (7);
+	\path (4) edge (5);
+	\path (4) edge (6);
+	\path (5) edge (7);
+	\path (6) edge (7);
+\end{scope}
+\end{tikzpicture}
+\]
+	\be
+	% 4a
+	\item Is this a Hamiltonian graph?\\
+	Observe that the graph is bipartite by my answer to 4(c). Notice that $|V_1|$ from 4(c) equals 3 and $|V_2|$ from 4(c) 
+	equals 4. Since the graph is bipartite, and $|V_1|\not=|V_2|$ because $3\not=4$, there is no Hamilton circuit by Theorem 4.			Thus, the this is not a Hamiltonian graph.
+	% 4b
+	\item Is this a complete graph?\\
+	This is not a complete graph because not all of the vertices are connected by a unique edge. For example, $v_1$ is not
+	connected to $v_7$. 
+	% 4c
+	\item Is this a bipartite graph?\\
+	Observe that by splitting the graph into two disjoint sets $V_1\text{ and }V_2\text{ where }V_1=\{v_1,v_4,v_7\}\text{ and }
+	V_2=\{v_2,v_3,v_5,v_6\}$, we get two sets where every edge in the graph connects a vertex in $V_1\text{ to }V_2$. Thus, by 
+	definition, the graph is bipartite.
+	% 4d
+	\item Is this a complete bipartite graph?\\
+	Notice that each vertex in the set $V_1$ from 4(c) has an edge connecting to each of the vertices of $V_2$ from 4(c), and 
+	each vertex in $V_2$ has an edge connecting it to each of the vertices in $V_1$. Thus, the graph is a complete bipartite 
+	graph.
+	\ee
 
-
-
-
-
-
-
-
-
-
-
-
+% 8
+\seti{7}
+\item Give two examples of Gray codes of length 3 that are not equivalent to:\\
+\[000, 001, 011, 111, 101, 100, 110, 010\]
+	\be
+	% 1
+	\item 111, 110, 100, 000, 010, 011, 001, 101
+	% 2
+	\item 000, 100, 101, 111, 110, 010, 011, 001
+	\ee
 \ee
+
+
+% SECTION 4.6 # 8
+\section*{4.6}
+\be
+
+% 8
+\seti{7}
+\item Recursively define $a_0=1,a_1=2,\text{ and }a_n=\frac{a_{n-1}^2-1}{a_{n-2}}$ for $n\geq2$.
+	\be
+	% 8a
+	\item Calculate the first few terms of the sequence.\\
+	$a_2=\frac{a_1^2-1}{a_0}=\frac{4-1}{1}=3$\\
+	$a_3=\frac{a_2^2-1}{a_1}=\frac{9-1}{2}=4$
+	% 8b
+	\item Using part (a), guess a general formula for $a_n$.\\
+	$a_n=n+1$
+	% 8c
+	\item Prove the guess in part (b).\\
+		\begin{itemize}
+		\item (Statement) \\
+			$a_n=\frac{a_{n-1}^2-1}{a_{n-2}} = n+1$ when $n\geq2$.
+		\item (Base) \\
+			When $n=2\text{, }a_2=\frac{a_1^2-1}{a_0}=\frac{4-1}{1}=3$ which equals $n+1$ so our base case holds true.
+		\item (Induction Hypothesis) \\
+			$a_{n-1}=(n-1)+1=n$ for $n\geq2$.\\
+			$a_{n-2}=(n-2)+1=n-1$ for $n\geq2$.
+		\item (Inductive Step) \\
+			\begin{align}
+			a_n &= \frac{a_{n-1}^2-1}{a_{n-2}}\\
+			    &= \frac{n^2-1}{n-1} & (\text{By Induction Hypothesis}) \\
+			    &= \frac{(n-1)(n+1)}{n-1} \\
+			    &= n+1
+			\end{align}
+			Thus, by induction, $a_n=n+1$ for $n\geq2$.
+		\end{itemize}
+	\ee
+\ee
+
+
+
 
 \end{document}
