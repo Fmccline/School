@@ -549,13 +549,50 @@ A labeled tree can be used to visualize a family tree, and a labeled tree can al
 
 % Additional Problem 1
 \seti{0}
-\item Additional Problem: Draw a tree with Prufer code (5,2,1,4,4,1,6,1,1), with no crossing edges. Show some work.\\
+\item Additional Problem: Draw a tree with Prufer code (5,2,1,4,4,1,6,1,1), with no crossing edges. Show some work.
 	\begin{align*}
-	(5,2,1,4,4,1,6,1,1) &\to& (\not5,2,1,4,4,1,6,1,1) &\to& (\not5,\not2,1,4,4,1,6,1,1) &\to&\\
-	\{1,2,3,4,5,6,7,8,9,10\} &\to& \{1,2,\not3,4,5,6,7,8,9,10\} &\to& \{1,2,\not3,4,\not5,6,7,8,9,10\} &\to&\\ \\
-	(\not5,\not2,\not1,4,4,1,6,1,1) &\to& (\not5,\not2,\not1,\not4,4,1,6,1,1) &\to&\\
-	\{1,\not2,\not3,4,\not5,6,7,8,9,10\} &\to& \{1,\not2,\not3,4,\not5,6,\not7,8,9,10\} &\to&
+	(5,2,1,4,4,1,6,1,1) &\to& 
+	(\not5,2,1,4,4,1,6,1,1) &\to& 
+	\\
+	\{1,2,3,4,5,6,7,8,9,10,11\} &\to& 
+	\{1,2,\not3,4,5,6,7,8,9,10,11\} &\to& 
+	\\
+	\\
+	(\not5,\not2,1,4,4,1,6,1,1) &\to&
+	(\not5,\not2,\not1,4,4,1,6,1,1) &\to& 
+	\\
+	\{1,2,\not3,4,\not5,6,7,8,9,10,11\} &\to&
+	\{1,\not2,\not3,4,\not5,6,7,8,9,10,11\} &\to& 
+	\\
+	\\
+	(\not5,\not2,\not1,\not4,4,1,6,1,1) &\to& 
+	(\not5,\not2,\not1,\not4,\not4,1,6,1,1) &\to&
+	\\
+	\{1,\not2,\not3,4,\not5,6,\not7,8,9,10,11\} &\to&
+	\{1,\not2,\not3,4,\not5,6,\not7,\not8,9,10,11\} &\to&
+	\\ 
+	\\
+	(\not5,\not2,\not1,\not4,\not4,\not1,6,1,1) &\to& 
+	(\not5,\not2,\not1,\not4,\not4,\not1,\not6,1,1) &\to& 
+	\\
+	\{1,\not2,\not3,\not4,\not5,6,\not7,\not8,9,10,11\} &\to& 
+	\{1,\not2,\not3,\not4,\not5,6,\not7,\not8,\not9,10,11\} &\to&
+	\\
+	\\
+	(\not5,\not2,\not1,\not4,\not4,\not1,\not6,\not1,1) &\to&
+	(\not5,\not2,\not1,\not4,\not4,\not1,\not6,\not1,\not1) &\to&
+	\\
+	\{1,\not2,\not3,\not4,\not5,\not6,\not7,\not8,\not9,10,11\} &\to&
+	\{1,\not2,\not3,\not4,\not5,\not6,\not7,\not8,\not9,\not{10},11\} &\to&
+	\\
+	\\
+	(\not5,\not2,\not1,\not4,\not4,\not1,\not6,\not1,\not1) &\to&
+	\\
+	\{\not1,\not2,\not3,\not4,\not5,\not6,\not7,\not8,\not9,\not{10},\not11\} &\to&
 	\end{align*}
+	\[
+	\to\{(5,3),(2,5),(1,2),(4,7),(4,8),(1,4),(6,9),(1,6),(1,10),(1,11)\}
+	\]
 
 
 \ee
