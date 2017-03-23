@@ -510,6 +510,98 @@ Edges added in order: 0-1, 0-5, 1-7, 1-2, 0-4, 7-6, 5-9, 3-2
     	$d$(A,vtx) & 0 & 4 & 5 & 5 & 6 & 7 & 9 & 10
     \end{tabular}
 
+\begin{tikzpicture}[baseline=(current bounding box.center), scale=1, every node/.style={circle,draw},level 1/.style={sibling distance=20mm},level 2/.style={sibling distance=12mm}, level 3/.style={sibling distance=8mm}, inner sep =1.5pt
+]
+ \tikzstyle{la}=[midway, fill=black!0, font=\footnotesize, inner sep=1pt];
+\node[] (A) {A}
+ child[]{ node(B) {B}
+ child{node (C){C}}
+ child{node (D){D}
+ child{node (E) {E}}
+ }
+ child{node (F) {F}}}
+ child{node (G){G}
+ child{node(N) {N}}}
+ child{node (H) {H}
+ child{node (I) {I}
+ child{node (J){J}}
+ child{node(K){K}}}
+ child{node(L){L}
+ child{node(M){M}}}};
+\end{tikzpicture}
+% 5
+\item List the vertices of the tree shown in Figure \ref{tree} using the preorder traversal.\\
+	Preorder: A B C D E F G N H I J K L M	
+
+% 6
+\item List the vertices of the tree shown in Figure \ref{tree} using breadth first search.\\
+	BFS: A B G H C D F N I L E J K M
+
+% 7
+\item Label the vertices of the tree shown in Figure \ref{tree} using a topological ordering.\\
+	\begin{tikzpicture}[baseline=(current bounding box.center), scale=1, every node/.style={circle,draw},level 1/.style={sibling distance=20mm},level 2/.style={sibling distance=12mm}, level 3/.style={sibling distance=8mm}, inner sep =1.5pt
+	]
+	 \tikzstyle{la}=[midway, fill=black!0, font=\footnotesize, inner sep=1pt];
+	\node[] (A) {14}
+	 child[]{ node(B) {5}
+	 child{node (C){1}}
+	 child{node (D){3}
+	 child{node (E) {2}}
+	 }
+	 child{node (F) {4}}}
+	 child{node (G){7}
+	 child{node(N) {6}}}
+	 child{node (H) {13}
+	 child{node (I) {10}
+	 child{node (J){8}}
+	 child{node(K){9}}}
+	 child{node(L){12}
+	 child{node(M){11}}}};
+	\end{tikzpicture}
+
+% 8
+\item Find a topological ordering of the vertices of the digraph shown in Figure \ref{digraph}, or explain why no such topological sorting exists.\\
+\begin{tikzpicture}[scale=2]
+\tikzstyle{vtx}=[draw, circle, inner sep = 2 pt, node distance=4cm and 1.5 cm]
+\tikzstyle{lbl}=[midway, inner sep = 1 pt, fill=white]
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .9 with {\arrow[scale=2]{stealth}}},postaction={decorate}}}
+\node[draw, circle, fill=gray!20] (A) at (1,0) {A} ;
+\node[draw, circle] (B) at (1,1) {B} ;
+\node[draw, circle] (C) at (2,0) {C} ;
+\node[draw, circle] (D) at (2,1) {D} ;
+\node[draw, circle] (E) at (3,0) {E} ;
+\node[draw, circle] (F) at (3,1) {F} ;
+\node[draw, circle] (H) at (2,-1) {H} ;
+\node[draw, circle] (G) at (3,-1) {G} ;
+\foreach \i/\j/\k in {A/B/4, B/D/1, D/F/1, C/D/3, A/C/5, C/H/4, H/G/1, E/G/4, C/E/2, F/E/5, D/F/1, A/H/11, H/E/1}{
+\draw[->-] (\i) --node[lbl]{\k} (\j);}
+\end{tikzpicture}
+	
+	\begin{tikzpicture}[scale=2]
+	\tikzstyle{vtx}=[draw, circle, inner sep = 2 pt, node distance=4cm and 1.5 cm]
+	\tikzstyle{lbl}=[midway, inner sep = 1 pt, fill=white]
+	\tikzset{->-/.style={decoration={
+	  markings,
+	  mark=at position .9 with {\arrow[scale=2]{stealth}}},postaction={decorate}}}
+	\node[draw, circle, fill=gray!20] (A) at (1,0) {1} ;
+	\node[draw, circle] (B) at (1,1) {2} ;
+	\node[draw, circle] (C) at (2,0) {3} ;
+	\node[draw, circle] (D) at (2,1) {4} ;
+	\node[draw, circle] (E) at (3,0) {7} ;
+	\node[draw, circle] (F) at (3,1) {5} ;
+	\node[draw, circle] (H) at (2,-1) {6} ;
+	\node[draw, circle] (G) at (3,-1) {8} ;
+	\foreach \i/\j/\k in {A/B/4, B/D/1, D/F/1, C/D/3, A/C/5, C/H/4, H/G/1, E/G/4, C/E/2, F/E/5, D/F/1, A/H/11, H/E/1}{
+	\draw[->-] (\i) --node[lbl]{\k} (\j);}
+	\end{tikzpicture}
+
+
+% 9
+\item The ``while'' statement of the topological ordering digraph algorithm includes the statement that we can find a vertex $v$ with no incoming edges. Explain why, if every vertex of a digraph has at least one incoming edge, then the digraph must have a cycle.\\
+	
+
 \ee
 
 \end{document}
