@@ -477,6 +477,39 @@ Edges added in order: 0-1, 0-5, 1-7, 1-2, 0-4, 7-6, 5-9, 3-2
 	Vertices   & 1 & 5 & 7 & 2 & 4 & 6 & 9 & 3 & 8\\
 	$d$(0,vtx) & 1 & 2 & 3 & 6 & 7 & 8 & 9 & 10 & 10
 \end{tabular}
+
+% 4
+\item Use Dijkstra's Algorithm to find a minimal distance directed spanning tree for the digraph shown in Figure 2, {\bf starting at vertex A}. List all the vertices along with their distance from vertex A. Are there any unreachable vertices (from A)? Which ones?\\
+    
+    \begin{tikzpicture}[scale=2]
+    \tikzstyle{vtx}=[draw, circle, inner sep = 2 pt, node distance=4cm and 1.5 cm]
+    \tikzstyle{lbl}=[midway, inner sep = 1 pt, fill=white]
+    \tikzset{->-/.style={decoration={
+      markings,
+      mark=at position .9 with {\arrow[scale=2]{stealth}}},postaction={decorate}}}
+    \node[draw, circle, fill=gray!20] (A) at (1,0) {A} ;
+    \node[draw, circle] (B) at (1,1) {B} ;
+    \node[draw, circle] (C) at (2,0) {C} ;
+    \node[draw, circle] (D) at (2,1) {D} ;
+    \node[draw, circle] (E) at (3,0) {E} ;
+    \node[draw, circle] (F) at (3,1) {F} ;
+    \node[draw, circle] (H) at (2,-1) {H} ;
+    \node[draw, circle] (G) at (3,-1) {G} ;
+    %\draw (A) -- (B) node[midway, auto]{4} -- (D) node[midway, auto]{1}--(C) node[midway, auto]{3}--(E) node[midway, auto]{2}--(F)node[midway, auto]{5};
+    %\draw (A) -- (C) node[midway, auto] {5} -- (H) node[midway, auto] {4} -- (I) node[midway, auto] {1}-- (E) node[midway, auto] {4};
+    %\draw (D) -- (F) node[midway, auto]{1};\draw (H) -- (A)node[midway, auto]{11};
+    \foreach \i/\j/\k in 
+    {A/B/4, A/C/5, B/D/1, D/F/1, C/E/2, C/H/4, H/G/1}
+    {\draw[->-] (\i) --node[lbl]{\k} (\j);}
+    \end{tikzpicture}
+    
+    Edges added in order: A-B, A-C, B-D, D-F, C-E, C-H, H-G
+    \\ \\
+    \begin{tabular}{c|c c c c c c c c}
+    	Vertices    & A & B & C & D & F & E & H & G\\
+    	$d$(A,vtx) & 0 & 4 & 5 & 5 & 6 & 7 & 9 & 10
+    \end{tabular}
+
 \ee
 
 \end{document}
