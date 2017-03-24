@@ -471,7 +471,7 @@ Figures: \\
 	{\draw (\i) node[graph] {$\i$};}
 	\end{tikzpicture}
 \\ \\ \\
-Edges added in order: 0-1, 0-5, 1-7, 1-2, 0-4, 7-6, 5-9, 3-2
+Edges added in order: 0-1, 0-5, 1-7, 1-2, 0-4, 7-6, 5-9, 3-2, 7-8
 \\ \\
 \begin{tabular}{c|c c c c c c c c c}
 	Vertices   & 1 & 5 & 7 & 2 & 4 & 6 & 9 & 3 & 8\\
@@ -503,7 +503,8 @@ Edges added in order: 0-1, 0-5, 1-7, 1-2, 0-4, 7-6, 5-9, 3-2
     {\draw[->-] (\i) --node[lbl]{\k} (\j);}
     \end{tikzpicture}
     
-    Edges added in order: A-B, A-C, B-D, D-F, C-E, C-H, H-G
+    Edges added in order: A-B, A-C, B-D, D-F, C-E, C-H, H-G \\
+    There are no unreachable vertices from A.
     \\ \\
     \begin{tabular}{c|c c c c c c c c}
     	Vertices    & A & B & C & D & F & E & H & G\\
@@ -535,7 +536,7 @@ Edges added in order: 0-1, 0-5, 1-7, 1-2, 0-4, 7-6, 5-9, 3-2
 
 % 6
 \item List the vertices of the tree shown in Figure \ref{tree} using breadth first search.\\
-	BFS: A B G H C D F N I L E J K M
+	BFS: A B G H C D F I L N E J K M (Ties broken alphabetically)
 
 % 7
 \item Label the vertices of the tree shown in Figure \ref{tree} using a topological ordering.\\
@@ -549,14 +550,14 @@ Edges added in order: 0-1, 0-5, 1-7, 1-2, 0-4, 7-6, 5-9, 3-2
 	 child{node (E) {2}}
 	 }
 	 child{node (F) {4}}}
-	 child{node (G){7}
-	 child{node(N) {6}}}
-	 child{node (H) {13}
-	 child{node (I) {10}
-	 child{node (J){8}}
-	 child{node(K){9}}}
-	 child{node(L){12}
-	 child{node(M){11}}}};
+	 child{node (G){13}
+	 child{node(N) {12}}}
+	 child{node (H) {11}
+	 child{node (I) {8}
+	 child{node (J){6}}
+	 child{node(K){7}}}
+	 child{node(L){10}
+	 child{node(M){9}}}};
 	\end{tikzpicture}
 
 % 8
@@ -585,21 +586,23 @@ Edges added in order: 0-1, 0-5, 1-7, 1-2, 0-4, 7-6, 5-9, 3-2
 	\tikzset{->-/.style={decoration={
 	  markings,
 	  mark=at position .9 with {\arrow[scale=2]{stealth}}},postaction={decorate}}}
-	\node[draw, circle, fill=gray!20] (A) at (1,0) {1} ;
-	\node[draw, circle] (B) at (1,1) {2} ;
-	\node[draw, circle] (C) at (2,0) {3} ;
+	\node[draw, circle, fill=gray!20] (A) at (1,0) {8} ;
+	\node[draw, circle] (B) at (1,1) {5} ;
+	\node[draw, circle] (C) at (2,0) {7} ;
 	\node[draw, circle] (D) at (2,1) {4} ;
-	\node[draw, circle] (E) at (3,0) {7} ;
-	\node[draw, circle] (F) at (3,1) {5} ;
+	\node[draw, circle] (E) at (3,0) {2} ;
+	\node[draw, circle] (F) at (3,1) {3} ;
 	\node[draw, circle] (H) at (2,-1) {6} ;
-	\node[draw, circle] (G) at (3,-1) {8} ;
+	\node[draw, circle] (G) at (3,-1) {1} ;
 	\foreach \i/\j/\k in {A/B/4, B/D/1, D/F/1, C/D/3, A/C/5, C/H/4, H/G/1, E/G/4, C/E/2, F/E/5, D/F/1, A/H/11, H/E/1}{
 	\draw[->-] (\i) --node[lbl]{\k} (\j);}
 	\end{tikzpicture}
 
 
 % 9
-\item The ``while'' statement of the topological ordering digraph algorithm includes the statement that we can find a vertex $v$ with no incoming edges. Explain why, if every vertex of a digraph has at least one incoming edge, then the digraph must have a cycle.\\
+\item The ``while'' statement of the topological ordering digraph algorithm includes the statement that we can find a vertex $v$ with no incoming edges. Explain why, if every vertex of a digraph has at least one incoming edge, then the digraph must have a cycle.\\ \\
+	If there isn't a vertex with no incoming edges, then there is no source in the graph. If there is no source, then there is 
+	no root in the graph, so there must be a cycle.
 	
 
 \ee
