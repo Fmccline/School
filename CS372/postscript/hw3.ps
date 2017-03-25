@@ -1,0 +1,153 @@
+%!
+/inch {72 mul} def
+
+% Title and name
+/Times-Roman findfont
+20 scalefont
+setfont
+newpath
+	1 inch 10 inch moveto
+	(Frank Cline) show
+	1 inch 9.5 inch moveto
+	(CS 372) show
+	1 inch 9 inch moveto
+	(HW 3) show
+showpage
+
+
+% NEW PAGE
+% 1 x 1 square starting at (1,1) with one side missing
+newpath
+	1 inch 1 inch moveto
+	2 inch 1 inch lineto
+	2 inch 2 inch lineto
+	1 inch 2 inch lineto
+stroke
+showpage
+
+
+% NEW PAGE
+% Draw 36 lines in a circular pattern while increasing length of lines
+0 10 360
+{
+	newpath
+
+	gsave
+		3 inch 6 inch moveto
+		dup /x exch def
+		rotate
+		x 0 rlineto
+		stroke
+	grestore
+}
+for
+showpage
+
+
+% NEW PAGE
+% Draw a 3 by 3 array of boxes
+% box: xcoord ycoord box -
+/box
+{
+	newpath
+	moveto
+	1 inch 0 rlineto
+	0 1 inch rlineto
+	-1 inch 0 rlineto
+	closepath
+}
+def
+
+1 inch 1 inch translate
+gsave
+0 1 2
+{
+	newpath
+	gsave
+		0 1 2
+		{
+			1 inch 0 translate
+			0 0 box stroke
+		}
+		for
+	grestore
+	0 1 inch translate
+}
+for
+grestore
+showpage
+
+
+% NEW PAGE
+newpath
+0 setgray
+1 setlinewidth
+1 inch 1 inch moveto 1 inch 2 inch lineto stroke
+
+gsave
+	0.5 setgray
+	10 setlinewidth
+	2 inch 1 inch moveto 2 inch 2 inch lineto stroke
+	3 inch 1 inch box
+	0.35 setgray
+	fill
+grestore
+
+3 setlinewidth
+5 inch 1 inch box stroke
+showpage
+
+
+% NEW PAGE
+% box: rotation xcoord ycoord box -
+/rotatebox
+{
+	newpath
+	moveto
+	/x exch def
+
+	x rotate
+	1 inch 0 rlineto
+	0 1 inch rlineto
+	-1 inch 0 rlineto
+	closepath
+}
+def
+
+newpath
+3 setlinewidth
+5 inch 5 inch moveto
+0 25 180
+{	
+	gsave
+		5 inch 5 inch rotatebox
+		stroke
+	grestore
+}
+for
+showpage
+
+
+% NEW PAGE
+newpath
+4 inch 6 inch moveto
+0 20 330
+{
+	/x exch def
+	4 inch 6 inch 1 inch 0 x arc
+	stroke
+}
+for
+4 inch 6 inch moveto
+gsave
+	x rotate
+	1 inch 0 inch rlineto
+	stroke
+grestore
+
+newpath
+4.4 inch 6.4 inch 0.1 inch 0 360 arc
+fill
+showpage
+
+
