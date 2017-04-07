@@ -105,8 +105,11 @@ To turn in:
 \item In the above situation, what is the smallest graph $G$ with this property? (Hint: what's the fewest number of hexagons possible in such a situation?)
 \ee
 
-\item Go find out about a planarity testing algorithm and describe how it works.
-
+\item Go find out about a planarity testing algorithm and describe how it works.\\
+	The algorithm I found is the Hopcroft algorithm. The way it works is a tree is produced from a Depth 
+	First Search. It uses the edges in the DFS that form a cycle and then it uses the subgraphs that 
+	connect to the cycle. Each subgraph is then tested for planarity, and if it is plane, the plane drawing is 
+	added to the plane graph. This continues until the entire graph has been added to the plane drawing.
 
 
 
