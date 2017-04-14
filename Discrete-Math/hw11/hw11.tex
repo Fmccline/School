@@ -1,0 +1,163 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}  % To use linespacing
+\usepackage{indentfirst} % Indents first line after sections
+\usepackage{amssymb} % For \mathbb
+\usepackage{enumerate} % For changing labels of enumerate
+\usepackage[margin=1in]{geometry} % For editing margins
+\usepackage{tikz} % Tikz drawing for graphs
+\usetikzlibrary{arrows.meta} % Allows customizing arrows
+\usetikzlibrary{backgrounds} % For framing a tikzpicture
+\usetikzlibrary{calc, through}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+\usepackage{amsmath}
+\usepackage{ifthen}
+\usepackage{intcalc} % \intcalcMod
+
+% Make new commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\fivespace}{\space\space\space\space\space}
+
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\seti}[1]{\setcounter{enumi}{#1}}
+\newcommand{\setii}[1]{\setcounter{enumii}{#1}}
+\newcommand{\tand}{\text{ and }}
+
+% Start main document
+\begin{document}
+\onehalfspacing
+\hfill Frank Cline
+
+\hfill Math 307
+
+\hfill HW 11
+
+% 5.1 # 4bcd (don't actually list them all), 6, 8, 9, 10, 13, 14, 16
+% 5.2 # 6, 12, 15, 16, 20
+
+\section*{5.1}
+
+\be
+% 4
+\seti{3}
+\item Let $A=\{1,2,3,4,5,6,7,8,9,10\}\tand B=\{2,3,5,7,11,13,17,19\}$.
+	\be
+	% 4 b
+	\setii{1}
+	\item How many subsets of A are there?\\
+	There are 11 possible combinations: \\
+	The empty set, set of length 1, set of length 2, ... , set of length 10\\
+	$={10\choose0}\foreach \i in {1,2,3,4,5,6,7,8,9,10}{+{10\choose\i}}$\\
+	$=1+10+45+120+210+252+210+120+45+10+1\\=1024$
+	% 4 c
+	\item How many 4-element subsets of A are there?\\
+	The amount of 4-element subsets of A is equal to ${10\choose4} =210$.
+	% 4 d
+	\item How many 4-element subsets of A consist of 3 even and 1 odd number?\\
+	Three of the elements must be even, and since there are 5 even numbers total in A, an even number is given by ${10\choose5}$.
+	Since there are 3 even numbers, and numbers can't be repeated, that is ${10\choose5}{10\choose4}{10\choose3}$. The remaining 
+	element must be odd, and there are 5 elements in A that are odd. Thus the remaining element must be ${10\choose5}$. 
+	That makes the total to be ${10\choose5}{10\choose5}{10\choose4}{10\choose3}=834$.
+	\ee
+
+% 6
+\seti{5}
+\item A certain class consists of 12 men and 16 women. How many committees can be chosen from this class consisting of
+	\be
+	% 6 a
+	\item 7 people?\\
+	This is equal to $28\choose7$ because there are 28 people total, you need to choose 7 of them, and order doesn't matter.
+	${28\choose7}=1,184,040$
+	% 6 b
+	\item 3 men and 4 women\\
+	This is equal to $12\choose3$$16\choose4$ because you need to choose 3 out of 12 men and 4 out of 16 women, and order doesn't 
+	matter. $12\choose3$$16\choose4$$=400400$
+	% 6 c
+	\item 7 women or 7 men\\
+	This is equal to ${12\choose7}+{16\choose7}$ because there are two possibilities: choosing 7 men OR choosing 7 women where 
+	order doesn't matter. ${12\choose7}+{16\choose7}=12,232$
+	\ee
+
+% 8
+\seti{7}
+\item How many committees consisting of 4 men and 4 women can be chosen from a group of 8 men and 6 women?\\
+	This is equal to ${8\choose4}{6\choose4}$ because order doesn't matter and we're choosing 4 of 8 men, and 4 of 6 women.
+	${8\choose4}{6\choose4}=85$.
+
+% 9
+\item Let $S=\{a,b,c,d\}\tand T=\{1,2,3,4,5,6,7\}$.
+	\be
+	% 9 a
+	\item How many one-to-one functions are there from T into S?\\
+	There are no one-to-one functions from T into S because T has more elements than S does, thus, it's impossible to map each 
+	element in T to a unique element in S which is the definition of one-to-one.
+	% 9 b
+	\item How many one-to-one functions are there from S into T?\\
+	The first element can map to one of 7 elements in T. The second element can then map to one of the 7 elements in T excluding 		the element one is mapped to, and so on. Thus the number of different one-to-one functions for S into T is 
+	$(7)(7-1)(7-2)(7-3)=(7)(6)(5)(4)=840$.
+	% 9 c
+	\item How many functions are there from S into T?\\
+	The number of functions from S into is equal to $(7)(7)(7)(7)$ because each of the 4 elements in S can map to any one of the 
+	7 elements in T. $(7)(7)(7)(7)=2401$
+	\ee
+
+% 10
+\item Let $P=\{1,2,3,4,5,6,7,8,9\}\tand Q=\{A,B,C,D,E\}$.
+	\be
+	% 10 a
+	\item How many 4-element subsets of P are there?\\
+	The number of 4-element subsets of P is equal to ${9\choose4}$ because you're choosing 4 elements from P and order doesn't 
+	matter. ${9\choose4}=126$.
+	% 10 b
+	\item How many permutations of Q are there?\\
+	There are 5 elements in Q, so the number of permutations of Q is equal to $5!=120$. 
+	% 10 c
+	\item How many license plates are there consisting of 3 letters from Q followed by 2 numbers from P? Repetition is allowed.\\
+	The cases are:
+		\begin{itemize}
+		\item No letter rep: $P(5,3)$ \\
+			Find the permutations of size 3 from the 5 letters.
+		\item 2 letter rep: ${5\choose1}{4\choose1}{2\choose1}$ \\
+			Choose 1 of the 5 letters, then choose another of the remaining 4 letters. The final letter must be the same as one
+			of the first 2 letters.
+		\item 3 letter rep: ${5\choose1}{1\choose1}{1\choose1}$\\	
+			Choose 1 of the 5 letters, and the other 2 must be that letter.
+		\item No num rep: $P(9,2)$\\
+			Find the permutations of size 2 from the 9 numbers.
+		\item 2 num rep: $9\choose1$\\
+			Choose 1 of the numbers and they will be repeated.
+		\end{itemize}
+		The total number of possibilities\\
+		$=[(\text{No letter rep})+(\text{2 letter rep})+(\text{3 letter rep})]\times[(\text{no num rep})+(\text{2 num rep})]$ \\
+		$=[P(5,3)+(5)(4)(2)+(5)]\times[P(9,2)+9]$\\
+		$=(60+40+5)\times(72+9)=(105)\times(81)$\\
+		$=8505$.
+	\ee
+
+% 13
+\seti{12}
+\item 
+
+\ee
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
