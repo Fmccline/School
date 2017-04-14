@@ -199,13 +199,13 @@
 	$\floor{10000}{21}=476$
 	% 14 b
 	\item How many members of $S$ are multiples of 3 and also multiples of 7 or multiples of 3 or of 7?\\
-	$\floor{10000}{3}+\floor{10000}{7}-476=4285$
+	$\floor{10000}{3}+\floor{10000}{7}-\floor{10000}{21}=4285$
 	% 14 c
 	\item How many members of $S$ are not divisible by 3 or 7?\\
 	$10000-\left(\floor{10000}{3}+\floor{10000}{7}\right)=5239$
 	% 14 d
 	\item How many members of $S$ are divisible by 3 or 7 but not by both?\\
-	$\floor{10000}{3}+\floor{10000}{7}-(2)(476)=3809$
+	$\floor{10000}{3}+\floor{10000}{7}-(2)\floor{10000}{21}=3809$
 	\ee
 
 %16
@@ -280,31 +280,45 @@
 	\be
 	% 15 a
 	\item no heads\\
-	$\frac{1}{2^6}{6\choose0}=\frac{1}{64}$.
+		$\frac{1}{2^6}{6\choose0}=\frac{1}{64}$.
 	% 15 b
 	\item 1 head\\
-	$\frac{1}{2^6}{6\choose1}=\frac{3}{32}$.
+		$\frac{1}{2^6}{6\choose1}=\frac{3}{32}$.
 	% 15 c
 	\item 2 heads\\
-	$\frac{1}{2^6}{6\choose2}=\frac{15}{64}$.
+		$\frac{1}{2^6}{6\choose2}=\frac{15}{64}$.
 	% 15 d
 	\item 3 heads\\
-	$\frac{1}{2^6}{6\choose3}=\frac{5}{16}$.
+		$\frac{1}{2^6}{6\choose3}=\frac{5}{16}$.
 	% 15 e
 	\item more than 3 heads\\
-	$\frac{1}{2^6}\paren{{6\choose4}+{6\choose5}+{6\choose6}} 
-	= \frac{1}{2^6}\paren{15+6+1}=\frac{22}{64}=\frac{11}{32}$.
+		$\frac{1}{2^6}\paren{{6\choose4}+{6\choose5}+{6\choose6}} 
+		= \frac{1}{2^6}\paren{15+6+1}=\frac{22}{64}=\frac{11}{32}$.
 	\ee
 	
 % 16
 \item A fair coin is tossed until a head is obtained. What is the probability that the coin was tossed at least 4 times?\\
-	The probability of the coin being tossed at least 4 times before a head is\\ 
-	$P(T)\times P(T)\times P(T)\times P(T) = 
-	\frac{1}{2}\times \frac{1}{2}\times \frac{1}{2}\times \frac{1}{2} = \frac{1}{16} $
+	The probability of the coin being tossed at least 4 times before a head is\\
+	$\sum_{k=4}^\infty{\frac{1}{2^k}}\approx0.125$.
 
 % 20
 \seti{19}
 \item 
+	\be
+	% 20 a
+	\item A student answers a 3-question true-false test at random. What is the probability that she will get at least 
+	two thirds of the questions correct?\\
+		The chance she will get a least two thirds of the questions correct is equal to \vspace{0.25cm}\\
+		$\frac{{3\choose2}+{3\choose3}}{2^3}=\frac{3+1}{8}=\frac{1}{2}$
+	% 20 b
+	\item Repeat part (a) for a 6-question test.\\
+		The chance she will get a least two thirds of the questions correct is equal to \vspace{0.25cm}\\
+		$\frac{{6\choose4}+{6\choose5}+{6\choose6}}{2^6}=\frac{15+6+1}{64}=\frac{11}{32}$
+	% 20 c
+	\item Repeat part (a) for a 9-question test.\\
+		The chance she will get a least two thirds of the questions correct is equal to \vspace{0.25cm}\\
+		$\frac{{9\choose6}+{9\choose7}+{9\choose8}+{9\choose9}}{2^9}=\frac{84+36+9+1}{512}=\frac{130}{512}$
+	\ee
 
 \ee
 

@@ -36,12 +36,14 @@ def main():
 	# print(x+y)
 	# pchoose(9,4)
 	# pperm(9,4)
-	pchoose(6,2)
-	pchoose(6,3)
-	pchoose(6,4)
-	pchoose(6,5)
+	_range = [6,7,8,9]
+	total_choose(9,_range)
+	print(pow(2,9))
 
-	print(45.0/64)
+	total = 0;
+	for i in range(4,20):
+		total += 1.0/pow(2,i)
+		print("1/" + str(pow(2,i)) + " : " + str(total))
 
 if __name__ == "__main__":
 	main() 
