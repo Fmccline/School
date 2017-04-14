@@ -36,16 +36,12 @@ def main():
 	# print(x+y)
 	# pchoose(9,4)
 	# pperm(9,4)
-	a1 = perm(5,3)
-	a2 = 5*4*2
-	a3 = 5
-	a4 = perm(9,2)
-	a5 = 9
-	total = (a1+a2+a3)*(a4+a5)
-	pperm(5,3)
-	pperm(9,2)
-	print("Total: " + str(total))
-	print(105*81)
+	pchoose(6,2)
+	pchoose(6,3)
+	pchoose(6,4)
+	pchoose(6,5)
+
+	print(45.0/64)
 
 if __name__ == "__main__":
 	main() 
