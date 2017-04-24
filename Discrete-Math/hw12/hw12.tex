@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}  % To use linespacing
+\usepackage{indentfirst} % Indents first line after sections
+\usepackage{amssymb} % For \mathbb
+\usepackage{enumerate} % For changing labels of enumerate
+\usepackage[margin=1in]{geometry} % For editing margins
+\usepackage{tikz} % Tikz drawing for graphs
+\usetikzlibrary{arrows.meta} % Allows customizing arrows
+\usetikzlibrary{backgrounds} % For framing a tikzpicture
+\usetikzlibrary{calc, through}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+\usepackage{amsmath}
+\usepackage{ifthen}
+\usepackage{intcalc} % \intcalcMod
+
+% Make new commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\fivespace}{\space\space\space\space\space}
+
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\seti}[1]{\setcounter{enumi}{#1}}
+\newcommand{\setii}[1]{\setcounter{enumii}{#1}}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\floor}[2]{\left\lfloor\frac{#1}{#2}\right\rfloor}
+
+
+% Start main document
+\begin{document}
+\onehalfspacing
+\hfill Frank Cline
+
+\hfill Math 307
+
+\hfill HW 12
+
+% 5.3 #2, 4, 9cd, 11a, 12, 13bc
+% 5.5 # 2, 4, 6, 13
+% 5 Supplementary Exercises # 11, 39
+
+\section*{5.3}
+\be
+
+% 2
+\seti{1}
+\item Let $S=\{100,101,102,...,999\}$ so that $|S|=900$.
+	\be
+	% 2 a
+	\item How many numbers in $S$ have at least one digit that is a 3 or a 7?\\
+
+	% 2 b
+	\item How many numbers in $S$ have at least one digit that is a 3 and at least one digit that is a 7?\\
+		
+	\ee
+	
+% 4
+\seti{3}
+\item An investor has 7 \$1000 bills to distribute among 3 mutual friends.
+	\be
+	% 4 a
+	\item In how many ways can she invest her money?\\
+	
+	
+	% 4 b
+	\item In how many ways can she invest her money if each fund must get at least \$1000.\\
+	
+	
+	\ee
+	
+\ee
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
