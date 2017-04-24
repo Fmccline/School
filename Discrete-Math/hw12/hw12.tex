@@ -53,10 +53,17 @@
 	\be
 	% 2 a
 	\item How many numbers in $S$ have at least one digit that is a 3 or a 7?\\
+	First, find the amount of numbers that don't have a 3 or a 7 in them. That amount is equal to $7\choose1$ for the first 
+	digit because it can be numbers 1-9 excluding 3 and 7. The second two digits can be numbers 0-9 exculding 3 and 7, so that is 
+	$8\choose1$. Thus, the equation for numbers that don't have a single digit as 3 or 7 is ${7\choose1}{8\choose1}{8\choose1}=
+	448$. The amount of numbers that have at least one 3 or 7 is equal to the total amount of numbers minus the amount of numbers 
+	that don't have a 3 or a 7 in them which equals $900-448=454$.
 
 	% 2 b
 	\item How many numbers in $S$ have at least one digit that is a 3 and at least one digit that is a 7?\\
-		
+	To find the amount of numbers that have at least one digit that is 3 and one digit that is 7, first choose 2 of the 3 digits 
+	to be 3 and 7 where order matters $P(3,2)$. Then choose which  Then pick the last number's digit which can be between 0-9 
+	$10\choose1$. The total is equal to $P(3,2)\times{10\choose1}=(6)(10)=60$.
 	\ee
 	
 % 4
@@ -72,7 +79,172 @@
 	
 	
 	\ee
+
+% 9 c d
+\seti{8}
+\item Use the binomial theorem to expand the following:
+	\be
+	\setii{2}
+	% 9 c
+	\item $(3x+1)^4$\\
+	\begin{align*}
+		(3x+1)^4 &= \sum^4_{r=0}{4\choose r}(3x)^r(1)^{4-r}\\
+				&= {4\choose0}(3x)^0(1)^{4-0} + {4\choose1}(3x)^1(1)^{4-1} + {4\choose2}(3x)^2(1)^{4-2}\\ &+
+				 {4\choose3}(3x)^3(1)^{4-3} + {4\choose4}(3x)^4(1)^{4-4}\\
+				&= 1 + (4)(3x)^1 + (6)(3x)^2 + (6)(3x)^3 + (4)(3x)^4 \\
+				&= 1 + 12x + 54x^2 + 162x^3 + 324x^4
+	\end{align*}
+	% 9 d
+	\item $(x+2)^5$\\
+	\begin{align*}
+		(x+2)^5 &= \sum^5_{r=0}{5\choose r}(x)^r(2)^{5-r}\\
+				&= {5\choose0}(x)^0(2)^{5-0} + {5\choose1}(x)^1(2)^{5-1} + {5\choose2}(x)^2(2)^{5-2} \\&+ 
+					{5\choose3}(x)^3(2)^{5-3} + {5\choose4}(x)^4(2)^{5-4} + {5\choose5}(x)^5(2)^{5-5}\\
+				&= (2)^5 + 5x(2)^4 + 10x^2(2)^3 + 10x^3(2)^2 + 5x^4(2)^1 + x^5 \\
+				&= 32 + 80x + 80x^2 + 40x^3 + 10x^4 + x^5
+	\end{align*}
 	
+	\ee
+	
+
+% 11 a
+\seti{10}
+\item Prove that $2^n = \sum^n_{r=0}{n\choose r}$
+	\be
+	\item by setting $a=b=1$ in the binomial theorem.
+	\begin{align*}
+		(2)^n &= (1+1)^n \\
+		(1+1)^n &= \sum^n_{r=0}{n\choose r}(1)^r(1)^{n-r} \hspace{1cm}\text{(by the binomial theorem)}\\
+				&= \sum^n_{r=0}{n\choose r}(1)(1) \hspace{1cm}\text{(because 1 to the power of anything is still 1)}\\
+				&= \sum^n_{r=0}{n\choose r}
+	\end{align*}
+	Thus $2^n = \sum^n_{r=0}{n\choose r}$. 
+	\ee
+
+% 12
+\item Prove that $\sum^n_{r=0}{{n\choose r}2^r} = 3^n$ for all $n\in\Z^+$.\\
+	By setting a = 2 and b = 1 in the binomial theorem we get:
+	\begin{align*}
+		(3)^n &= (2+1)^n \\
+		(2+1)^n &= \sum^n_{r=0}{n\choose r}(2)^r(1)^{n-r} \hspace{1cm}\text{(by the binomial theorem)}\\
+				&= \sum^n_{r=0}{n\choose r}(2)^r(1) \hspace{1cm}\text{(because 1 to the power of anything is still 1)}\\
+				&= \sum^n_{r=0}{n\choose r}(2)^r
+	\end{align*}
+	Thus $3^n = \sum^n_{r=0}{{n\choose r}2^r}$ for all $n\in\Z^+$.
+
+% 13 b c
+\item 
+	\be
+	% 13 b
+	\setii{1}
+	\item Prove $\sum^n_{k=m}{k\choose m} = {{n+1}\choose{m+1}}$ by induction on $n$ for $n\geq m$.	\\
+	\begin{itemize}
+		\item (Base Case): \vspace{0.1cm} \\
+			The base case is when $n=m$. $\sum^n_{k=m}{k\choose m} = {n\choose m} = {m\choose m} = 1. \\
+			{{n+1}\choose{m+1}} = {{m+1}\choose{m+1}} = 1$. 1 = 1 so our base case holds.
+		
+		\item (Ind Hyp):\vspace{0.1cm} \\ 
+			$\sum^{n-1}_{k=m}{k\choose m} = {{n-1+1}\choose{m+1}}$ for some $n>m$.
+
+		\item (Ind Step):
+		\begin{align}
+			\sum^{n}_{k=m}{k\choose m} &= \sum^{n-1}_{k=m}{k\choose m} + {n\choose m}\\
+									&= {{n-1+1}\choose{m+1}} + {n\choose m} \\
+									&= {{n}\choose{m+1}} + {n\choose m} \hspace{1.5cm}\text{(By Ind Hyp)}\\
+									&= {{n+1}\choose{m+1}}
+		\end{align}
+	\end{itemize}
+		Thus by induction, $\sum^n_{k=m}{k\choose m} = {{n+1}\choose{m+1}}$
+	\ee
+ 
+\ee
+
+
+% 5.5 # 2, 4, 6, 13
+\section*{5.5}
+
+\be
+
+% 2
+\seti{1}
+\item 
+	\be
+	% 2 a
+	\item A sack contains 50 marbles of 4 different colors. Explain why there are at least 13 marbles of the same color.\\
+		4 different colors $\to$ 4 boxes. 50 marbles $\to$ 50 balls. $(4)(12)=48<50$, so there are more than 12 marbles 
+		($\geq13$) of the same color by the pigeonhole principle.
+		
+	% 2 b
+	\item If exactly 8 marbles are red, explain why there are at least 14 marbles of the same color.\\
+		If 8 marbles are red, that leaves 42 marbles of 3 different colors. \\3 different colors $\to$ boxes. 42 marbles $\to$ 
+		balls. $(3)(13)=39<42$, so there must be more than 13 marbles ($\geq14$) that are the same color by the pigeonhole 
+		principle.
+	\ee
+
+% 4
+\seti{3}
+\item 
+	\be
+	% 4 a
+	\item Let $B$ be a 12-element subset of $\{1,2,3,4,5,6\}\times\{1,2,3,4,5,6\}$. Show that $B$ containts two different 
+	ordered pairs, the sums of whose entries are equal.\\
+	$(2,3)\in B\tand(1,4)\in B$. $2+3=5\tand1+4=5$, so their sums are equal.
+
+	% 4 b
+	\item How many times can a pair of dice be tossed without obtaining the same sum twice?\\
+	There 11 different sums (2,3,4,5,6,7,8,9,10,11,12) $\to$ boxes. So a pair of dice can be tossed \fbox{11} times before 
+	obtaining the same sum twice.
+	\ee
+
+% 6
+\seti{5}
+\item Let $S$ be a 3-element set of integers. Show that $S$ has two different nonempty subsets such that the sums of the numbers in each of the subsets are congruent mod 6.\\
+Congruent mod 6 has 6 equivalence classes (0,1,2,3,4,5) $\to$ boxes. A 3-element set of integers has $|P(S)|$ subets. $|P(S)| = 2^{|S|} = 2^3 = 8 \to \text{ balls}$. There are 7 balls (8 minus the empty set) and only 6 boxes, so there must be at least one box with 2 or more balls. This means that there must be at least 2 different nonempty subsets of $S$ such that their sums are congruent mod 6.
+
+% 13
+\seti{12}
+\item Let $n_1,n_2,\tand n_3$ be distinct positive integers. Show that at least one of $n_1,n_2,n_3, n_1+n_2,n_2+n_3,n_1+n_2+n_3$ is divisible by 3.
+
+
+\ee
+
+
+% 5 Supplementary Exercises # 11, 39
+\section*{Supplementary Exercises}
+\be
+% 11
+\seti{10}
+\item A box contains tickets of 4 colors: red, blue, yellow, and green. Each ticket has a number from \{0,1,...,9\} written on it.
+	\be
+	% 11 a
+	\item What is the largest number of tickets the box can contain without having at least 21 tickets of the same color?\\
+	4 colors $\to$ boxes. $21-1=20\to$ balls. $(4)(20)=80$ so the box can contain \fbox{80} tickets without there being a box with at 
+	least 21 tickets of the same color by the pigeonhole principle.
+
+	% 11 b
+	\item What is the smallest number of tickets the box must contain to be sure that it contains at least two tickets of the 	
+	same color with the same number on them?\\
+	4 colors of 10 different numbers is $(4)(10)=40\to$ boxes. $2-1=1\to$ balls. $(40)(1)=40$ so there must be at least \fbox{41}
+	tickets for there to be at least 2 tickets with the same color and number on them.
+	\ee
+
+% 39
+\seti{38}
+\item Let $D=\{1,2,3,4,5\}\text{ and let } L=\{a,b,c\}$.
+	\be
+	% 39 a
+	\item How many functions are there from the set $D$ to the set $L$?\\
+	There are 5 elements in $D$ each of which can map to one of 3 elements in $L$. Thus, the total number of functions is equal 
+	to ${3\choose1}{3\choose1}{3\choose1}{3\choose1}{3\choose1}=\fbox{243}$ functions.
+
+	% 39 b
+	\item How many of these functions map $D$ onto $L$?\\
+	For $D$ to map ont $L$, all of the elements in $L$ must be mapped to. To do so, first choose 3 of the 5 elements in $D$; 
+	these elements will map to the 3 elements in $L$. Then the other 2 elements in $D$ can be mapped to any of the elements in 
+	$L$. Thus, the equation is ${5\choose3}{3\choose1}{3\choose1}=\fbox{90}$ of the functions are onto.
+
+	\ee
+
 \ee
 
 
