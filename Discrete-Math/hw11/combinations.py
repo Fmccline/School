@@ -30,20 +30,23 @@ def pperm(n,r):
 	x = perm(n,r)
 	print("P({},{}) = ".format(n,r) + str(x))
 
+
+def intitial_amount(p,i, n):
+	# A = P(1+i)^-n
+	# if interest is compound, i/month
+	# n = time multiplied by amount/time
+	return pow(p*(1+i),-1*n)
+
+
 def main():	
 	# x = choose(8,4)
 	# y= choose(6,4)
 	# print(x+y)
 	# pchoose(9,4)
 	# pperm(9,4)
-	_range = [6,7,8,9]
-	total_choose(9,_range)
-	print(pow(2,9))
+	pperm(1500,4)
 
-	total = 0;
-	for i in range(4,20):
-		total += 1.0/pow(2,i)
-		print("1/" + str(pow(2,i)) + " : " + str(total))
+
 
 if __name__ == "__main__":
 	main() 
