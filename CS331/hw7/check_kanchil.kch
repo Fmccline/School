@@ -1,0 +1,133 @@
+#!./kanchil.lua
+# check_kanchil.kch
+# Glenn G. Chappell
+# 22 Apr 2017
+#
+# For CS F331 / CSCE A331 Spring 2017
+# A Kanchil Program to Run
+# Used in Assignment 7, Exercise A
+
+
+# &printChar - Print a character
+# A ridiculous function, made necessary by the lousy character/string
+# support in this PL.
+sub &printChar
+    if %ch == 0 print " "
+    elseif %ch == 1 print "A"
+    elseif %ch == 2 print "B"
+    elseif %ch == 3 print "C"
+    elseif %ch == 4 print "D"
+    elseif %ch == 5 print "E"
+    elseif %ch == 6 print "F"
+    elseif %ch == 7 print "G"
+    elseif %ch == 8 print "H"
+    elseif %ch == 9 print "I"
+    elseif %ch == 10 print "J"
+    elseif %ch == 11 print "K"
+    elseif %ch == 12 print "L"
+    elseif %ch == 13 print "M"
+    elseif %ch == 14 print "N"
+    elseif %ch == 15 print "O"
+    elseif %ch == 16 print "P"
+    elseif %ch == 17 print "Q"
+    elseif %ch == 18 print "R"
+    elseif %ch == 19 print "S"
+    elseif %ch == 20 print "T"
+    elseif %ch == 21 print "U"
+    elseif %ch == 22 print "V"
+    elseif %ch == 23 print "W"
+    elseif %ch == 24 print "X"
+    elseif %ch == 25 print "Y"
+    elseif %ch == 26 print "Z"
+    elseif %ch == 27 print "a"
+    elseif %ch == 28 print "b"
+    elseif %ch == 29 print "c"
+    elseif %ch == 30 print "d"
+    elseif %ch == 31 print "e"
+    elseif %ch == 32 print "f"
+    elseif %ch == 33 print "g"
+    elseif %ch == 34 print "h"
+    elseif %ch == 35 print "i"
+    elseif %ch == 36 print "j"
+    elseif %ch == 37 print "k"
+    elseif %ch == 38 print "l"
+    elseif %ch == 39 print "m"
+    elseif %ch == 40 print "n"
+    elseif %ch == 41 print "o"
+    elseif %ch == 42 print "p"
+    elseif %ch == 43 print "q"
+    elseif %ch == 44 print "r"
+    elseif %ch == 45 print "s"
+    elseif %ch == 46 print "t"
+    elseif %ch == 47 print "u"
+    elseif %ch == 48 print "v"
+    elseif %ch == 49 print "w"
+    elseif %ch == 50 print "x"
+    elseif %ch == 51 print "y"
+    elseif %ch == 52 print "z"
+    elseif %ch == 53 print ","
+    elseif %ch == 53 print "'"
+    elseif %ch == 54 print "."
+    elseif %ch == 55 print "!"
+    elseif %ch == 56 print "?"
+    else print "ERROR. &printChar: bad value of %ch" cr
+    end
+end
+
+
+# &initData - Initialize data arrays
+sub &initData
+    set %alen: 35 # Length of arrays
+
+    set %a[0]:  185   set %a[1]:  201   set %a[2]:  884
+    set %a[3]:  544   set %a[4]:  755   set %a[5]:  995
+    set %a[6]:  724   set %a[7]:  893   set %a[8]:  113
+    set %a[9]:  351   set %a[10]: 841   set %a[11]: 978
+    set %a[12]: 870   set %a[13]: 440   set %a[14]: 717
+    set %a[15]: 98    set %a[16]: 848   set %a[17]: 389
+    set %a[18]: 793   set %a[19]: 36    set %a[20]: 818
+    set %a[21]: 60    set %a[22]: 565   set %a[23]: 457
+    set %a[24]: 391   set %a[25]: 966   set %a[26]: 319
+    set %a[27]: 511   set %a[28]: 1000  set %a[29]: 949
+    set %a[30]: 921   set %a[31]: 556   set %a[32]: 509
+    set %a[33]: 839   set %a[34]: 39
+
+    set %d[0]:  160   set %d[1]:  345   set %d[2]:  423
+    set %d[3]:  981   set %d[4]:  211   set %d[5]:  211
+    set %d[6]:  503   set %d[7]:  385   set %d[8]:  886
+    set %d[9]:  909   set %d[10]: 362   set %d[11]: 408
+    set %d[12]: 932   set %d[13]: 911   set %d[14]: 439
+    set %d[15]: 932   set %d[16]: 182   set %d[17]: 360
+    set %d[18]: 960   set %d[19]: 766   set %d[20]: 791
+    set %d[21]: 8     set %d[22]: 787   set %d[23]: 207
+    set %d[24]: 459   set %d[25]: 140   set %d[26]: 326
+    set %d[27]: 110   set %d[28]: 255   set %d[29]: 671
+    set %d[30]: 79    set %d[31]: 397   set %d[32]: 367
+    set %d[33]: 668   set %d[34]: 798
+end
+
+
+# Initialize data & print header
+call &initData
+print "Secret message #6:" cr cr
+
+# Print the secret message (in a mysterious manner)
+set %ii: 0
+while %ii < %alen
+    set %ch: %a[0]-%d[0]
+    call &printChar
+    set %jj: 0
+    while %jj+1 < %alen
+        set %a[%jj]: (%a[%jj] + %a[%jj+1]) % 1001
+        set %d[%jj]: %d[%jj+1]
+        set %jj: %jj+1
+    end
+    set %ii: %ii+1
+end
+cr
+
+# Wait for user (automatic in kanchil.lua)
+#cr
+#print "Press ENTER to quit "
+#input %line
+
