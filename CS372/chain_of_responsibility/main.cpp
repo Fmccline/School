@@ -54,4 +54,17 @@ int main()
 		cout << chain_of_responsibility->handleChange(i*i) << endl;
 		cout << endl;
 	}
+
+	cout << "Out of 50 and 20" << endl;
+	one_dollar->setNext(one_dollar);
+	five_dollars->setNext(one_dollar);
+	ten_dollars->setNext(five_dollars);
+	one_hundred_dollars->setNext(ten_dollars);
+
+	for (int i=10; i<=15; i++)
+	{
+		cout << "$" << i*i << endl;
+		cout << chain_of_responsibility->handleChange(i*i) << endl;
+		cout << endl;
+	}
 }
